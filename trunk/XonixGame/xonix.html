@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Xonix mega cool game</title>
+    <script src="scripts/jquery-1.10.1.js"></script>
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="color-picker">
+        Kendo color picker
+        <a href="#">Change Color</a>
+    </div>
+    <div id="player">
+        select player
+    </div>
+
+    <form>
+        <label for="easy-level">Easy</label>
+        <input type="radio" name="levels" value="Easy" id="easy-level" checked="checked"/>
+         <label for="medium-level">Medium</label>
+        <input type="radio" name="levels" value="Medium"id="medium-level" />
+         <label for="hard-level">Hard</label>
+        <input type="radio" name="levels" value="Hard"id="hard-level" />
+    </form>
+    <canvas id="playfield" width="700" height="400"></canvas>
+    <script src="scripts/xonix.js"></script>
+    <script type="text/javascript">
+        //$("#playfield").css("background-color","lightblue");
+        var context = canvas.getContext('2d');
+        context.strokeStyle = '#000';
+        context.fillStyle = '#f00';
+        context.lineWidth = 5;
+
+        /*
+            module playfield - the canvas and drawing grid - class cell, class playfield
+            baba player  - class player (abstract) -> baba, dqdo, cherna ninja
+            pilci enemies - class enemy (abstract) -> kokoshki, petli, bqla ninja 
+        */
+    </script>
+</body>
+</html>
