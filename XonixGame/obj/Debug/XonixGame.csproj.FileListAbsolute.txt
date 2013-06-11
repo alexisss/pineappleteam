@@ -1,0 +1,5 @@
+D:\svn\XonixGame\XonixGame\bin\XonixGame.dll
+D:\svn\XonixGame\XonixGame\bin\XonixGame.pdb
+D:\svn\XonixGame\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
+D:\svn\XonixGame\XonixGame\obj\Debug\XonixGame.dll
+D:\svn\XonixGame\XonixGame\obj\Debug\XonixGame.pdb
