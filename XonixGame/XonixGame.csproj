@@ -57,7 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\cell.js" />
+    <Content Include="scripts\engine.js" />
     <Content Include="scripts\jquery-1.10.1.js" />
+    <Content Include="scripts\playfield.js" />
     <Content Include="scripts\xonix.js" />
     <Content Include="styles\style.css" />
     <Content Include="Web.config" />
