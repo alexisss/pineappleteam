@@ -2,29 +2,40 @@
 var player = new Player(); //+ name
 var enemies = new Array(new Enemy());
 var pathSoFar = new Array();
+var gameRules = new GameRules();
+var gameDrower = new gameDrower();
 
 //this must be moved
 $("body").keydown(function (e) {
-    if (e.keyCode == 37) { // left
-        player.moveLeft();
-        playfield.array[player.top, player.left].color = "purple"; //or something like that
-        pathSoFar.push(playfield.array[player.top, player.left]);
-    }
+    var currentCell = new Cell(player.cell.X + 14, player.cell.Y + 10);
+    if (e.keyCode == 37) { // left     
+        if (gameRules.validatePosition(currentCell)) {
+            player.moveLeft();
+            pathSoFar.push(currentCell);
+            gameDrower.drowCell(currentCell);
+          } 
+        }
     else if (e.keyCode == 38) { // up
-        player.moveUp();
-        playfield.array[player.top, player.left].color = "purple"; //or something like that
-        pathSoFar.push(playfield.array[player.top, player.left]);
-    }
+        if (gameRules.validatePosition(currentCell)) {
+            player.moveUp();
+            pathSoFar.push(currentCell);
+            gameDrower.drowCell(currentCell);
+        }            
+        }
     else if (e.keyCode == 39) { // right
-        player.moveRight();
-        playfield.array[player.top, player.left].color = "purple"; //or something like that
-        pathSoFar.push(playfield.array[player.top, player.left]);
-    }
+        if (gameRules.validatePosition(currentCell)) {
+            player.moveRight();
+            pathSoFar.push(currentCell);
+            gameDrower.drowCell(currentCell);
+        }
+        }
     else if (e.keyCode == 40) { // down
-        player.moveDown();
-        playfield.array[player.top, player.left].color = "purple"; //or something like that
-        pathSoFar.push(playfield.array[player.top, player.left]);
-    }
+        if (gameRules.validatePosition(currentCell)) {
+            player.moveDown();
+            pathSoFar.push(currentCell);
+            gameDrower.drowCell(currentCell);
+        }
+        }
 });
 
 function resetCurrent() {
@@ -38,37 +49,11 @@ function resetAll() {
     pathSoFar = new Array();
 }
 
-function hasCollisions() {
-    for (var i = 0; i < enemies.length; i++) {
-        if (enemies[i].doesEnemyCollide(i)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-function doesEnemyCollide(index) {
-    var enemy = enemies[index];
-
-    for (var i = 0; i < pathSoFar.length; i++) {
-        if (enemy.cell.equals(pathSoFar[i].cell)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-function fillPath() {
-    //TODO: implement this method
-}
-
+//TODO
 function update() {
-    if (hasCollisions()) {
+    if (gameRules.hasCollisions()) {
         resetCurrent();
-    }
-    else {
-        fillPath();
+    } else {
+        
     }
 }
