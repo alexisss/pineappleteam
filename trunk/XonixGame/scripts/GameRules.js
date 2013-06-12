@@ -24,4 +24,15 @@
 
     return false;
     },
+    isBorderReached : function (playerPositionCell, playfield) {
+        for (var i = 0; i < playfield.length; i++) {
+            for (var j = 0; j < playfield[i].length; j++) {
+                if ($.inArray(array[i][j], arrayOfCellsForDrow)) {// contains
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    },
 });
