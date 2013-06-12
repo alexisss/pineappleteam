@@ -7,8 +7,12 @@ var gameDrower = new gameDrower();
 
 //this must be moved
 $("body").keydown(function (e) {
-    var currentCell = new Cell(player.cell.X + 14, player.cell.Y + 10);
-    if (e.keyCode == 37) { // left     
+    
+    if (e.keyCode == 37) { // left   
+        var currentCell = new Cell(player.cell.X - 14, player.cell.Y);
+        // calculating the positions where the player will go can be done in 
+        // player class  so here instead of  new Cell(player.cell.X + 14, player.cell.Y + 10);
+        // we can have new Cell(player.nextStepX , player.nextStepY; or only player.CellToBeMovedOn
         if (gameRules.validatePosition(currentCell)) {
             player.moveLeft();
             pathSoFar.push(currentCell);
@@ -16,6 +20,7 @@ $("body").keydown(function (e) {
           } 
         }
     else if (e.keyCode == 38) { // up
+        var currentCell = new Cell(player.cell.X, player.cell.Y - 10);
         if (gameRules.validatePosition(currentCell)) {
             player.moveUp();
             pathSoFar.push(currentCell);
@@ -23,6 +28,7 @@ $("body").keydown(function (e) {
         }            
         }
     else if (e.keyCode == 39) { // right
+        var currentCell = new Cell(player.cell.X +14 , player.cell.Y );
         if (gameRules.validatePosition(currentCell)) {
             player.moveRight();
             pathSoFar.push(currentCell);
@@ -30,6 +36,7 @@ $("body").keydown(function (e) {
         }
         }
     else if (e.keyCode == 40) { // down
+        var currentCell = new Cell(player.cell.X , player.cell.Y + 10);
         if (gameRules.validatePosition(currentCell)) {
             player.moveDown();
             pathSoFar.push(currentCell);
