@@ -27,8 +27,17 @@
             }
         }
     },
-    drowSubField :function()
+    drowSubField :function(arrayOfCell)
     {
+        for (var i = 0; i < arrayOfCell.length; i++) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(arrayOfCell[i].position.leftPosition, arrayOfCell[i].position.topPosition);
+            this.ctx.fillStyle = arrayOfCell[i].color;
+            this.ctx.fillRect(arrayOfCell[i].position.leftPosition, arrayOfCell[i].position.topPosition,
+                arrayOfCell[i].width, arrayOfCell[i].height);
+            this.ctx.closePath();
+            this.ctx.stroke();
+        }
     },
     clearCurrentPath: function (currentPath) {
         for (var i = 0; i < currentPath.length; i++) {
@@ -41,7 +50,7 @@
     clearAll: function () {
         this.ctx.clearRect(0, 0, parseInt(canvas.width), parseInt(canvas.height));
         this.ctx.stroke();
-    }
+    },
 });
 var gd = new GameDrower();
 // need a cell
