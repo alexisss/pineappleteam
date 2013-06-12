@@ -38,6 +38,7 @@ var Playfield = Class.create({
     }
 });
 
+// test code
 var pl = new Playfield();
 
 var ct1 = new CellTopLeft(0, 0);
@@ -50,3 +51,13 @@ var arr = [c1, c2, c3];
 pl.sow(arr);
 var gd = new GameDrower();
 gd.drowField(pl);
+var gameRulse = new GameRules();
+var ct4 = new CellTopLeft(28, 10);
+var playerCell = new Cell(ct4, "blue");
+var yes = gameRulse.isBorderReached(playerCell, pl);
+console.log(yes);
+// step on his path --> ans must be yes
+var ct5 = new CellTopLeft(28, 10);
+var playerCellStep = new Cell(ct5, "blue");
+var ans = gameRulse.isPlayerStepOnHisPath(playerCellStep, [playerCell, playerCellStep]);
+console.log(ans);
