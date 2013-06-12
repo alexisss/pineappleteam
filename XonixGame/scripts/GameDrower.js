@@ -27,6 +27,9 @@
             }
         }
     },
+    drowSubField :function()
+    {
+    },
     clearCurrentPath: function (currentPath) {
         for (var i = 0; i < currentPath.length; i++) {
             this.ctx.moveTo(currentPath[i].position.leftPosition, currentPath[i].position.topPosition);
