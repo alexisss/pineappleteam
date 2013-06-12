@@ -33,9 +33,16 @@ var Playfield = Class.create({
             }
         }
     },
+<<<<<<< .mine
+    //Added because of the enemy, so that it knows if the cell is sown or not
+    isSown: function (topLeftPosition) {
+        return this.array[topLeftPosition.leftPosition][topLeftPosition.topPosition].isSown;      
+    }
+=======
     calculatePoints: function () {
         return this.fillCellsCounter;
     }
+>>>>>>> .r11
 });
 
 // test code

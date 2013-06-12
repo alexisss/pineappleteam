@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\enemy.js" />
     <Content Include="scripts\CellTopLeft.js" />
     <Content Include="scripts\Cell.js" />
     <Content Include="scripts\ClassicalOOPExtensions.js" />
