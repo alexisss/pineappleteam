@@ -1,7 +1,7 @@
 ﻿var GameRules = Class.create({
     init: function () { },
     validatePosition: function (cell) {
-        // TODO
+        // TODO if player can not muve do nothing
     },
     hasCollisions: function() {
         for (var i = 0; i < enemies.length; i++) {
