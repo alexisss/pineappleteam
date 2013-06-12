@@ -4,25 +4,25 @@
         // TODO
     },
     hasCollisions: function() {
-    for (var i = 0; i < enemies.length; i++) {
-        if (enemies[i].doesEnemyCollide(i)) {
-            return true;
+        for (var i = 0; i < enemies.length; i++) {
+            if (enemies[i].doesEnemyCollide(i)) {
+                return true;
+            }
         }
-    }
 
-    return false;
+        return false;
     },
 
     doesEnemyCollide : function (index) {
-    var enemy = enemies[index];
+        var enemy = enemies[index];
 
-    for (var i = 0; i < pathSoFar.length; i++) {
-        if (enemy.cell.equals(pathSoFar[i].cell)) {
-            return true;
+        for (var i = 0; i < pathSoFar.length; i++) {
+            if (enemy.cell.equals(pathSoFar[i].cell)) {
+                return true;
+            }
         }
-    }
 
-    return false;
+        return false;
     },
     isBorderReached : function (playerPositionCell, playfield) {
         for (var i = 0; i < playfield.length; i++) {
@@ -35,4 +35,16 @@
 
         return false;
     },
+    isPlayerStepOnHisPath: function (playerPositionCell, pathSoFar) {
+        if ($.inArray(playerPositionCell, pathSoFar)) {
+            return true;
+        }
+        return false;
+    },
+    isGameWin: function (playfield) {
+        if (playfield.calculatePoints() > 1700) {
+            return true;
+        }
+        return false;
+    }
 });
