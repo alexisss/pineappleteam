@@ -8,3 +8,8 @@ D:\pineapple\XonixGame\bin\XonixGame.pdb
 D:\pineapple\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
 D:\pineapple\XonixGame\obj\Debug\XonixGame.dll
 D:\pineapple\XonixGame\obj\Debug\XonixGame.pdb
+C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\bin\XonixGame.dll
+C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\bin\XonixGame.pdb
+C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\obj\Debug\XonixGame.dll
+C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\obj\Debug\XonixGame.pdb

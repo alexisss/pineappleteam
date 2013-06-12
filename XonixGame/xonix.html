@@ -22,12 +22,19 @@
          <label for="hard-level">Hard</label>
         <input type="radio" name="levels" value="Hard"id="hard-level" />
     </form>
-    <canvas id="playfield" width="700" height="400"></canvas>
-    <script src="scripts/cell.js"></script>
-    <script src="scripts/playfield.js"></script>
-    <script src="scripts/engine.js"></script>
+    <canvas id="playfield" width="700" height="400"></canvas>  
     <script src="scripts/xonix.js"></script>
+    <script src="scripts/ClassicalOOPExtensions.js"></script>
+    <script src="scripts/CellTopLeft.js"></script>
+    <script src="scripts/Cell.js"></script>
+    <script src="scripts/Playfield.js"></script>
+    <script src="scripts/GameRules.js"></script>
+    <script src="scripts/GameDrower.js"></script>
+    <!-- <script src="scripts/engine.js"></script>-->
+    
+
     <script type="text/javascript">
+        var canvas = document.getElementById("playfield");
         var context = canvas.getContext('2d');
         context.strokeStyle = '#000';
         context.fillStyle = '#f00';
