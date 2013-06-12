@@ -1,31 +1,52 @@
-﻿var Playfield = Class.create({
+﻿/// <reference path="GameDrower.js" />
+var Playfield = Class.create({
     init: function () {
         //this.arrayOfCells = arrayOfCells;
         this.array = [];// 50 elements
-        var canvas = document.getElementById("playfield");
-        for (var i = 0; i < parseInt(canvas.width) / 14; i++) {
+        this.fillCellsCounter = 0;
+        this.canvas = document.getElementById("playfield");
+        for (var i = 0; i < parseInt(this.canvas.width) / 14; i++) {
 
-            array.push( new Array(parseInt(canvas.height) / 10));
+           this.array.push( new Array(parseInt(this.canvas.height) / 10));
         }
 
-        for (var row = 0; row < parseInt(canvas.width) / 14; row++) {
-            for (var col = 0 ; col < parseInt(canvas.height) / 10 ; col++)
+        for (var row = 0; row < parseInt(this.canvas.width) / 14; row++) {
+            for (var col = 0 ; col < parseInt(this.canvas.height) / 10 ; col++)
             {
                 var currentCellTopLeft = new CellTopLeft(col * 14, row * 10);
                 var currentCell = new Cell(currentCellTopLeft, "blue");
                 this.array[row][col] = currentCell;
             }
         }
-        console.log(this.array[1][1].position.isSown);
     },
     sow: function (arrayOfCellsForDrow) {
-        for (var i = 0; i < parseInt(canvas.width) / 14; i++) {
-            for (var j = 0; j < parseInt(canvas.height) / 10; j++) {
-                if ($.inArray(array[i][j], arrayOfCellsForDrow)) {
-                    this.array[i][j].isSown = true;
+        for (var i = 0; i < parseInt(this.canvas.width) / 14; i++) {
+            for (var j = 0; j < parseInt(this.canvas.height) / 10; j++) {
+                var a = this.array[i][j];
+                for (var k = 0; k < arrayOfCellsForDrow.length; k++) {
+                    if (this.array[i][j].position.leftPosition === arrayOfCellsForDrow[k].position.leftPosition &&
+                        this.array[i][j].position.topPosition === arrayOfCellsForDrow[k].position.topPosition) {
+                        this.array[i][j].isSown = true;
+                        this.fillCellsCounter++;
+                    }
                 }
             }
         }
     },
+    calculatePoints: function () {
+        return this.fillCellsCounter;
+    }
 });
-//var pl = new Playfield();
+
+var pl = new Playfield();
+
+var ct1 = new CellTopLeft(0, 0);
+var ct2 = new CellTopLeft(14, 10);
+var ct3 = new CellTopLeft(28, 10);
+var c1 = new Cell(ct1, "blue");
+var c2 = new Cell(ct2, "blue");
+var c3 = new Cell(ct3, "blue");
+var arr = [c1, c2, c3];
+pl.sow(arr);
+var gd = new GameDrower();
+gd.drowField(pl);
