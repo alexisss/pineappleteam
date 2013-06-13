@@ -60,10 +60,3 @@ var GameDraw = Class.create({
         //this.ctx.stroke();
     },
 });
-//var gd = new GameDrower();
-// need a cell
-//var cTopLeft = new CellTopLeft(1,3);
-//var celll = new Cell(cTopLeft, "red");
-//gd.drowCell(celll);
-//gd.clearCurrentPath([celll]);
-
