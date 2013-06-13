@@ -62,9 +62,10 @@
     <Content Include="scripts\Cell.js" />
     <Content Include="scripts\ClassicalOOPExtensions.js" />
     <Content Include="scripts\engine.js" />
-    <Content Include="scripts\GameDrower.js" />
+    <Content Include="scripts\GameDraw.js" />
     <Content Include="scripts\GameRules.js" />
     <Content Include="scripts\jquery-1.10.1.js" />
+    <Content Include="scripts\player.js" />
     <Content Include="scripts\Playfield.js" />
     <Content Include="scripts\xonix.js" />
     <Content Include="styles\style.css" />

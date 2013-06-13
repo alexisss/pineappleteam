@@ -26,22 +26,19 @@ var Playfield = Class.create({
     },
 
     seedCell: function (row, column) {
-        if (!this.array[row][column].isSown) {
-            this.array[row][column].isSown = true;
-            this.filledCellsCounter++;
+       
+        for (var i = 0; i < parseInt(canvaswidth) / this.cellWidth; i++) {
+            for (var j = 0; j < parseInt(this.canvas.height) / this.cellHeight; j++) {
+                var a = this.array[i][j];
+                for (var k = 0; k < arrayOfCellsForDraw.length; k++) {
+                    if (this.array[i][j].position.leftPosition === arrayOfCellsForDraw[k].position.leftPosition &&
+                        this.array[i][j].position.topPosition === arrayOfCellsForDraw[k].position.topPosition) {
+                        this.array[i][j].isSown = true;
+                        this.filledCellsCounter++;
+                    }
+                }
+            }
         }
-        //for (var i = 0; i < parseInt(canvaswidth) / this.cellWidth; i++) {
-        //    for (var j = 0; j < parseInt(this.canvas.height) / this.cellHeight; j++) {
-        //        var a = this.array[i][j];
-        //        for (var k = 0; k < arrayOfCellsForDraw.length; k++) {
-        //            if (this.array[i][j].position.leftPosition === arrayOfCellsForDraw[k].position.leftPosition &&
-        //                this.array[i][j].position.topPosition === arrayOfCellsForDraw[k].position.topPosition) {
-        //                this.array[i][j].isSown = true;
-        //                this.filledCellsCounter++;
-        //            }
-        //        }
-        //    }
-        //}
     },
     //Added because of the enemy, so that it knows if the cell is sown or not
     isSown: function (topLeftPosition) {
