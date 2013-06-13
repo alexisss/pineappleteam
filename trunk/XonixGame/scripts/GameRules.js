@@ -6,6 +6,13 @@
         this.lives = 5;
     },
 
+    checkForCollisions: function()
+    {
+        if (this.hasCollisions()) {
+            this.decreaseLives();
+        }
+    },
+
     hasCollisions: function () {
         var collision = false;
 
@@ -21,7 +28,7 @@
         return this.lives == 0;
     },
 
-    decreaseLived: function()
+    decreaseLives: function()
     {
         this.lives--;
     },
