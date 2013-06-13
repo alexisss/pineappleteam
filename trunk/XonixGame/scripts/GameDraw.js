@@ -16,8 +16,8 @@ var GameDraw = Class.create({
     },
 
     drawField: function (playfield) {
-        for (var row = 0; row < parseInt(this.canvas.width) / 14; row++) {
-            for (var col = 0 ; col < (parseInt(this.canvas.height) / 10) ; col++) {
+        for (var row = 0; row < (parseInt(this.canvas.height) / 10) ; row++) {
+            for (var col = 0 ; col < parseInt(this.canvas.width) / 14; col++) {
                 if (playfield.array[row][col].isSown) {
                     this.ctx.beginPath();
                     this.ctx.moveTo(playfield.array[row][col].position.leftPosition,
