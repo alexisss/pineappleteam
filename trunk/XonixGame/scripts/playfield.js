@@ -26,7 +26,7 @@ var Playfield = Class.create({
         this.filledCellsCounter++;
     },
     //Added because of the enemy, so that it knows if the cell is sown or not
-    isSown: function (topLeftPosition) {
+    isSown: function () {
         return this.array[topLeftPosition.leftPosition][topLeftPosition.topPosition].isSown;      
     },
 

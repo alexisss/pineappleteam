@@ -3,59 +3,64 @@
         this.position = position;
         this.color = color;
         this.radius = 10;
-
+        this.x = 1;
+        this.y = 1;
     },
 
     moveTopRight: function() {
 
-        if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition + y))) {
+        if (!playfield.isSown(new CellTopLeft(this.position.leftPossition + this.x, this.position.topPossition + this.y))) {
             x = x;
             y = y;
         }
 
         changePosition();
-    } ,
+    },
+
     moveBottomLeft: function(){
-        if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition - y))) {
+        if (!playfield.isSown(new CellTopLeft(this.position.leftPossition - this.x, this.position.topPossition - this.y))) {
             х = х * (-1);
             y = y * (-1);
         }
 
         changePosition();
     },
+
     moveTopLeft: function() {
-        if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition + y))) {
+        if (!playfield.isSown(new CellTopLeft(this.position.leftPossition - this.x, this.position.topPossition + this.y))) {
             х = х * (-1);
         }
 
         changePosition();
     },
+
     moveBottomRight: function(){
-        if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition - y))) {
+        if (!playfield.isSown(new CellTopLeft(this.position.leftPossition + this.x, this.position.topPossition - this.y))) {
             y = y * (-1);
         }
 
         changePosition();
         
     },
+
     move: function () {
         var direction = getRandomInt(1, 4);
         switch (direction) {
             case 1:
-                Enemy.moveTopRight();
+                this.moveTopRight();
                 break;
             case 2:
-                Enemy.moveBottomLeft();
-                break;                
+                this.moveBottomLeft();
+                break;
             case 3:
-                Enemy.moveTopRight();
+                this.moveTopRight();
                 break;
             case 4:
-                Enemy.moveBottomLeft();
+                this.moveBottomLeft();
                 break;
-            default:                
+            default:
                 break;
-}
+        }
     }
 });
 
