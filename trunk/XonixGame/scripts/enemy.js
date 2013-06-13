@@ -7,91 +7,74 @@
         this.y = 10;
     },
 
-    moveTopRight: function () {
+    moveTopRight: function (playfield) {
         var newLeft = this.position.leftPossition + this.x;
         var newTop = this.position.topPossition + this.y;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
-        if (!playfield.isSown(rowIndex, colIndex)) {
-            x = x;
-            y = y;
+        if (this.position.leftPosition > 0 && !playfield.isSown(rowIndex, colIndex &&
+            this.position.topPossition > 0 && !playfield.isSown(colIndex, rowIndex) &&
+            this.position.leftPosition < parseInt(playfield.canvas.width) - 14 &&
+            this.position.topPossition > parseInt(playfield.canvas.height) - 10)) {
+
+            this.position.leftPosition += this.x / 2;
+            this.position.topPossition += this.y / 2;
         }
-        changePosition();
     },
 
-    moveBottomLeft: function () {
-        var newLeft = this.position.leftPossition + this.x;
-        var newTop = this.position.topPossition + this.y;
+    moveBottomLeft: function (playfield) {
+        var newLeft = this.position.leftPossition - this.x;
+        var newTop = this.position.topPossition - this.y;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
-        if (!playfield.isSown(new CellTopLeft(this.position.leftPossition - this.x, this.position.topPossition - this.y))) {
-            х = х * (-1);
-            y = y * (-1);
+        if (this.position.leftPosition > 0 && !playfield.isSown(rowIndex, colIndex) &&
+            this.position.topPossition > 0 && !playfield.isSown(colIndex, rowIndex)) {
+            this.position.leftPosition -= this.x / 2;
+            this.position.topPossition -= this.y / 2;
         }
-
-        changePosition();
     },
 
     moveTopLeft: function (playfield) {
-        var newLeft = this.position.leftPossition + this.x;
+        var newLeft = this.position.leftPossition - this.x;
         var newTop = this.position.topPossition;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
         if (this.position.leftPosition > 0 && !playfield.isSown(rowIndex, colIndex) ) {
-            this.position.leftPosition += this.x / 2;
-        }
-        //var newLeft = this.position.leftPossition + this.x;
-        //var newTop = this.position.topPossition + this.y;
-        //var colIndex = parseInt((newLeft) / 14);
-        //var rowIndex = parseInt((newTop) / 10);
-        //if (!playfield.isSown(new CellTopLeft(this.position.leftPossition - this.x, this.position.topPossition + this.y))) {
-        //    х = х * (-1);
-        //}
-
-        //changePosition();
+            this.position.leftPosition -= this.x / 2;
+        }        
     },
 
-    moveBottomRight: function () {
-        var newLeft = this.position.leftPossition + this.x;
+    moveBottomRight: function (playfield) {
+        var newLeft = this.position.leftPossition;
         var newTop = this.position.topPossition - this.y;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
-        if (!playfield.isSown(rowIndex, colIndex)) {
-            y = y * (-1);
+        if (this.position.TopPosition > 0 && !playfield.isSown(rowIndex, colIndex)) {
+            this.position.TopPosition -= this.y / 2;
         }
-
-        changePosition();
-        
     },
 
     move: function (playfield) {
-        //var direction = getRandomInt(1, 4);
-        //switch (direction) {
-        //    case 1:
-        //        this.moveTopRight();
-        //        break;
-        //    case 2:
-        //        this.moveBottomLeft();
-        //        break;
-        //    case 3:
-        //        this.moveTopRight();
-        //        break;
-        //    case 4:
-        //        this.moveBottomLeft();
-        //        break;
-        //    default:
-        //        break;
-        //}
-        this.moveTopLeft(playfield);
+       var direction = getRandomInt();
+       switch (direction) {
+           case 0:
+               this.moveTopRight(playfield);
+               break;
+           case 1:
+               this.moveBottomLeft(playfield);
+               break;
+           case 2:
+               this.moveTopRight(playfield);
+               break;
+           case 3:
+               this.moveBottomLeft(playfield);
+               break;
+           default:
+               break;
+       }        
     }
 });
 
-function changePosition() {
-    this.position.leftPossition += x;
-    this.position.leftPossition += y;
-}
-
-
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function getRandomInt() {
+    return Math.floor(Math.random() * 4);
 }
