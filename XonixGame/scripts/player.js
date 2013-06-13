@@ -21,6 +21,7 @@
         if (this.position.leftPosition > 0) {
             this.position.leftPosition -= distance;
         }
+
     },
 
     moveRight: function (distance, maxWidth) {
