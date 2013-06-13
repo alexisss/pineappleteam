@@ -49,7 +49,7 @@ setInterval(function () {
         //do something else
     }
     else {
-        enemy.move();
+        enemy.move(playfield);
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemy);
     }
