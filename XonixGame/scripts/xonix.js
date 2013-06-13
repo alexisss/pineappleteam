@@ -50,6 +50,7 @@ setInterval(function () {
     //}
     //else {
         enemy.move(playfield);
+
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemy);
     //}
