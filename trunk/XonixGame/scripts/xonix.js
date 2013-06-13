@@ -14,7 +14,7 @@ var c2 = new Cell(ct2, "red");
 var c3 = new Cell(ct3, "purple");
 var c10 = new Cell(ct10, "green");
 var arr = new Array(c1, c2, c3, c10);
-playfield.seedCell(arr);
+playfield.seedArrayOfCells(arr);
 
 var ct4 = new CellTopLeft(28, 10);
 var playerCell = new Cell(ct4, "red");
