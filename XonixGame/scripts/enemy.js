@@ -37,10 +37,34 @@
 
         changePosition();
         
+    },
+    move: function () {
+        var direction = getRandomInt(1, 4);
+        switch (direction) {
+            case 1:
+                Enemy.moveTopRight();
+                break;
+            case 2:
+                Enemy.moveBottomLeft();
+                break;                
+            case 3:
+                Enemy.moveTopRight();
+                break;
+            case 4:
+                Enemy.moveBottomLeft();
+                break;
+            default:                
+                break;
+}
     }
 });
 
 function changePosition() {
     this.position.leftPossition += x;
     this.position.leftPossition += y;
+}
+
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
