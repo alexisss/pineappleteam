@@ -22,12 +22,20 @@ var Playfield = Class.create({
     },
 
     seedCell: function myfunction(row, col) {
-        this.array[row][col].isSown = true;
-        this.filledCellsCounter++;
+        if (row >= 0 && row < this.array.length) {
+            if (col >= 0 && col < this.array[row].length) {
+                this.array[row][col].isSown = true;
+                this.filledCellsCounter++;
+            }
+        }
     },
     //Added because of the enemy, so that it knows if the cell is sown or not
-    isSown: function () {
-        return this.array[topLeftPosition.leftPosition][topLeftPosition.topPosition].isSown;      
+    isSown: function (row, col) {
+        if (row >= 0 && row < this.array.length) {
+            if (col >= 0 && col < this.array[row].length) {
+                return this.array[row][col].isSown;
+            }
+        }
     },
 
     calculatePoints: function () {
