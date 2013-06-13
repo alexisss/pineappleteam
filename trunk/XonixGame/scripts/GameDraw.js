@@ -36,7 +36,7 @@ var GameDraw = Class.create({
     drawEnemy: function (player) {
         this.ctx.beginPath();
         this.ctx.arc(player.position.leftPosition + 7, player.position.topPosition + 5, player.radius, 0, 2 * Math.PI, false);
-        this.ctx.fillStyle = enemy.color;
+        //this.ctx.fillStyle = enemy.color;
         this.ctx.fill();
         this.ctx.closePath();
     },

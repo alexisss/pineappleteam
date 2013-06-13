@@ -34,25 +34,25 @@ userPalyerChoise.addEventListener("click", function (ev) {
 }, false);
 
 
-var enemyPosition = new CellTopLeft(150, 150);
-var enemy = new Enemy(enemyPosition);
+var enemyPosition = new CellTopLeft(14, 0);
+var enemy = new Enemy(enemyPosition, "red");
 
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemy, playfield);
 
 setInterval(function () {
 
-    if (gameRules.hasWon()) {
-        //do something
-    }
-    else if (gameRules.hasLost()) {
-        //do something else
-    }
-    else {
+    //if (gameRules.hasWon()) {
+    //    //do something
+    //}
+    //else if (gameRules.hasLost()) {
+    //    //do something else
+    //}
+    //else {
         enemy.move(playfield);
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemy);
-    }
+    //}
 }, 50);
 
 function seedVisitedCell(curretPlayer) {
