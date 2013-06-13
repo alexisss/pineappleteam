@@ -22,8 +22,8 @@ var playerCell = new Cell(ct4, "red");
 var playerPosition = new CellTopLeft(0, 0);
 var player = new Player(playerPosition);
 
-var enemyPosition = new CellTopLeft(150, 150);
-var enemy = new Enemy(enemyPosition);
+var enemyPosition = new CellTopLeft(700, 0);
+var enemy = new Enemy(enemyPosition, "red");
 
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemy, playfield);
