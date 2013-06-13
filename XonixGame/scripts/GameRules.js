@@ -1,5 +1,9 @@
 ﻿var GameRules = Class.create({
-    init: function () { },
+    init: function (player, enemy, playfield) {
+        this.player = player;
+        this.enemy = enemy;
+        this.playfield = playfield;
+    },
     validatePosition: function (cell) {
         // TODO if player can not move do nothing
     },
