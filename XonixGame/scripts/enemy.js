@@ -1,24 +1,48 @@
 ﻿var Enemy = Class.create({
     init: function (position, color) {
         this.position = position;
-        this.color = "red";
+        this.color = color;
         this.radius = 10;
+        this.x = x;
+        this.y = y;
+
     },
-    move: function() {
+
+    moveTopRight: function() {
+
         if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition + y))) {
-           
-        } else if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition + y))) {
-            х = х * (-1);
+            x = x;
+            y = y;
+        }
 
-        } else if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition - y))) {
+        changePosition();
+    } ,
+    moveBottomLeft: function(){
+        if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition - y))) {
+            х = х * (-1);
             y = y * (-1);
+        }
 
-        } else if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition - y))) {
-            х = х * (-1);
+        changePosition();
+    },
+    moveTopLeft: function() {
+        if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition + y))) {
             х = х * (-1);
         }
 
-        position.leftPossition = position.leftPossition + x;
-        position.leftPossition = position.topPossition + y;
+        changePosition();
+    },
+    moveBottomRight: function(){
+        if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition - y))) {
+            y = y * (-1);
+        }
+
+        changePosition();
+        
     }
 });
+
+function changePosition() {
+    this.position.leftPossition += x;
+    this.position.leftPossition += y;
+}
