@@ -11,8 +11,8 @@
         }
     },
 
-    moveDown: function (distance) {
-        if (this.position.topPosition < 100) { //this must be constant and not 100 but canvas height
+    moveDown: function (distance, maxHeight) {
+        if (this.position.topPosition < maxHeight) { //this must be constant and not 100 but canvas height
             this.position.topPosition += distance;
         }
     },
@@ -23,8 +23,8 @@
         }
     },
 
-    moveRight: function (distance) {
-        if (this.position.leftPosition < 100) { //must be something like canvas width
+    moveRight: function (distance, maxWidth) {
+        if (this.position.leftPosition < maxWidth) { //must be something like canvas width
             this.position.leftPosition += distance;
         }
     }
