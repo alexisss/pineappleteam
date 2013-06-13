@@ -21,6 +21,10 @@
         return this.lives == 0;
     },
 
+    decreaseLived: function()
+    {
+        this.lives--;
+    },
     //isBorderReached: function (playerPositionCell, playfield) {
     //    for (var i = 0; i < playfield.array.length; i++) {
     //        for (var j = 0; j < playfield.array[i].length; j++) {

@@ -43,8 +43,8 @@ setInterval(function () {
 }, 50);
 
 function seedVisitedCell(curretPlayer) {
-    var rowIndex = parseInt(curretPlayer.position.leftPosition / canvasHeight);
-    var colIndex = parseInt(curretPlayer.position.topPosition / canvasWidth);
+    var rowIndex = parseInt(canvasHeight / curretPlayer.position.leftPosition);
+    var colIndex = parseInt(canvasWidth / curretPlayer.position.topPosition);
     playfield.seedCell(rowIndex, colIndex);
 }
 
