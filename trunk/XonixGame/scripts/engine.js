@@ -16,7 +16,7 @@ $("body").keydown(function (e) {
         if (gameRules.validatePosition(currentCell)) {
             player.moveLeft();
             pathSoFar.push(currentCell);
-            gameDrower.drowCell(currentCell);
+            gameDrower.drawCell(currentCell);
           } 
         }
     else if (e.keyCode == 38) { // up
@@ -24,7 +24,7 @@ $("body").keydown(function (e) {
         if (gameRules.validatePosition(currentCell)) {
             player.moveUp();
             pathSoFar.push(currentCell);
-            gameDrower.drowCell(currentCell);
+            gameDrower.drawCell(currentCell);
         }            
         }
     else if (e.keyCode == 39) { // right
@@ -32,7 +32,7 @@ $("body").keydown(function (e) {
         if (gameRules.validatePosition(currentCell)) {
             player.moveRight();
             pathSoFar.push(currentCell);
-            gameDrower.drowCell(currentCell);
+            gameDrower.drawCell(currentCell);
         }
         }
     else if (e.keyCode == 40) { // down
@@ -40,7 +40,7 @@ $("body").keydown(function (e) {
         if (gameRules.validatePosition(currentCell)) {
             player.moveDown();
             pathSoFar.push(currentCell);
-            gameDrower.drowCell(currentCell);
+            gameDrower.drawCell(currentCell);
         }
         }
 });
@@ -64,7 +64,7 @@ function update() {
         //TODO method for calculating subfield to be drown
         // subField must be an array of cells (containing pathSoFar and inner cells)
         playfield.sow(subField);
-        gameDrower.drowSubField(subField);
+        gameDrower.drawSubField(subField);
     } else if (true) {
         //TODO - check for game end 
     }

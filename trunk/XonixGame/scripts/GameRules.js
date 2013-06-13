@@ -1,7 +1,7 @@
 ﻿var GameRules = Class.create({
     init: function () { },
     validatePosition: function (cell) {
-        // TODO if player can not muve do nothing
+        // TODO if player can not move do nothing
     },
     hasCollisions: function() {
         for (var i = 0; i < enemies.length; i++) {
@@ -46,7 +46,7 @@
 
         return false;
     },
-    isGameWin: function (playfield) {
+    hasWon: function (playfield) {
         if (playfield.calculatePoints() > 1700) {
             return true;
         }
