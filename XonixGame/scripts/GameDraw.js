@@ -35,7 +35,7 @@ var GameDraw = Class.create({
 
     drawPlayer: function (player) {
         this.ctx.beginPath();
-        this.ctx.arc(player.position.leftPosition, player.position.topPosition, player.radius, 0, 2 * Math.PI, false);
+        this.ctx.arc(player.position.leftPosition + 7, player.position.topPosition + 5, player.radius, 0, 2 * Math.PI, false);
         this.ctx.fillStyle = player.color;
         this.ctx.fill();
         this.ctx.closePath();
@@ -53,27 +53,6 @@ var GameDraw = Class.create({
         this.drawField(playfield);
         this.drawEnemy(enemy);
         this.drawPlayer(player);
-    },
-
-    //drawSubField: function (arrayOfCells) {
-    //    for (var i = 0; i < arrayOfCells.length; i++) {
-    //        this.ctx.beginPath();
-    //        this.ctx.moveTo(arrayOfCells[i].position.leftPosition, arrayOfCells[i].position.topPosition);
-    //        this.ctx.fillStyle = arrayOfCells[i].color;
-    //        this.ctx.fillRect(arrayOfCells[i].position.leftPosition, arrayOfCells[i].position.topPosition,
-    //            arrayOfCells[i].width, arrayOfCells[i].height);
-    //        this.ctx.closePath();
-    //        this.ctx.stroke();
-    //    }
-    //},
-
-    clearCurrentPath: function (currentPath) {
-        for (var i = 0; i < currentPath.length; i++) {
-            this.ctx.moveTo(currentPath[i].position.leftPosition, currentPath[i].position.topPosition);
-            this.ctx.clearRect(currentPath[i].position.leftPosition, currentPath[i].position.topPosition,
-                currentPath[i].width, currentPath[i].height);
-            this.ctx.stroke();
-        }
     },
 
     clearAll: function () {
