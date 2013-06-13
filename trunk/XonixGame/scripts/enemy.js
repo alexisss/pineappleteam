@@ -3,8 +3,6 @@
         this.position = position;
         this.color = color;
         this.radius = 10;
-        this.x = x;
-        this.y = y;
 
     },
 

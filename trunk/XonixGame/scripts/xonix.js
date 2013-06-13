@@ -1,4 +1,5 @@
-﻿var playfield = new Playfield();
+﻿var gameDraw = new GameDraw();
+var playfield = new Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
 
 var cellWidth = 14;
 var cellHeight = 10;
@@ -14,7 +15,7 @@ var c10 = new Cell(ct10, "green");
 var arr = new Array(c1, c2, c3, c10);
 playfield.seedCell(arr);
 
-var gameDraw = new GameDraw();
+
 gameDraw.drawField(playfield);
 var gameRules = new GameRules();
 var ct4 = new CellTopLeft(28, 10);
