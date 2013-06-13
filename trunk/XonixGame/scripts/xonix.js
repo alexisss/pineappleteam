@@ -42,10 +42,10 @@ $("body").keydown(function (e) {
     }
     else if (e.keyCode == 39) { // right
 
-        player.moveRight(cellWidth);
+        player.moveRight(cellWidth, gameDraw.canvas.width);
 
     }
     else if (e.keyCode == 40) { // down
-        player.moveDown(cellHeight);
+        player.moveDown(cellHeight, gameDraw.canvas.height);
     }
 });
