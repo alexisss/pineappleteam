@@ -5,6 +5,9 @@
         this.radius = 10;
         this.x = 14;
         this.y = 10;
+        this.countMove = 0;
+        this.direction = 0;
+        this.count = 0;
     },
 
     moveTop: function (playfield) {
@@ -15,7 +18,10 @@
         if (!playfield.isSown(rowIndex, colIndex) &&
             this.position.topPosition > 0)
         {
-            this.position.topPosition -= this.y / 2;
+            this.position.topPosition += this.y;
+        }
+        else {
+            this.countMove = 0;
         }
     },
 
@@ -27,8 +33,11 @@
         if (!playfield.isSown(rowIndex, colIndex) &&            
             this.position.topPosition < parseInt(playfield.canvas.height) - 10) {
 
-            this.position.topPosition += this.y / 2;
+            this.position.topPosition -= this.y;
             
+        }
+        else {
+            this.countMove = 0;
         }
     },
 
@@ -40,8 +49,11 @@
         if (this.position.leftPosition > 0 &&
             !playfield.isSown(rowIndex, colIndex)) {
 
-            this.position.leftPosition -= this.x / 2;
-        }        
+            this.position.leftPosition -= this.x;
+        }
+        else {
+            this.countMove = 0;
+        }
     },
 
     moveRight: function (playfield) {
@@ -49,16 +61,27 @@
         var newTop = this.position.topPosition;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
-        if (this.position.leftPosition < parseInt(playfield.canvas.width) &&
+        if (this.position.leftPosition < (parseInt(playfield.canvas.width)-14) &&
             !playfield.isSown(rowIndex, colIndex)) {
-            
-            this.position.leftPosition += this.x / 2;
+
+            this.position.leftPosition += this.x;
+        } else {
+            this.countMove = 0;
         }
     },
 
     move: function (playfield) {
-       var direction = getRandomInt();
-       switch (direction) {
+        this.count++;
+        if (this.count % 2 == 0) {
+            return;
+        }
+        if (this.countMove <= 0) {
+            this.direction = getRandomInt();
+            this.countMove = getRandomInt() * 5;
+        }
+        this.countMove--;
+        
+       switch (this.direction) {
            case 0:
                this.moveTop(playfield);
                break;
@@ -74,7 +97,6 @@
            default:
                break;
        }
-       console.log(this.position.leftPosition + ", " + this.position.topPosition);
     }
 });
 
