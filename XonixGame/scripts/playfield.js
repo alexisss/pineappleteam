@@ -15,9 +15,9 @@ var Playfield = Class.create({
         //    this.array.push(new Array(parseInt(canvasHeight) / this.cellHeight));
         //}
 
-        for (var row = 0; row < parseInt(canvasWidth) / this.cellWidth; row++) {
+        for (var row = 0; row < parseInt(canvasHeight) / this.cellHeight ; row++) {
             this.array.push(new Array());
-            for (var col = 0 ; col < parseInt(canvasHeight) / this.cellHeight ; col++)
+            for (var col = 0 ; col < parseInt(canvasWidth) / this.cellWidth; col++)
             {
                 var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
                 var currentCell = new Cell(currentCellTopLeft, "green");
@@ -29,8 +29,8 @@ var Playfield = Class.create({
 
     seedArrayOfCells: function (arrayOfCellsForDraw) {
        
-        for (var i = 0; i < parseInt(this.canvas.width) / this.cellWidth; i++) {
-            for (var j = 0; j < parseInt(this.canvas.height) / this.cellHeight; j++) {
+        for (var i = 0; i < parseInt(this.canvas.height) / this.cellHeight; i++) {
+            for (var j = 0; j <  parseInt(this.canvas.width) / this.cellWidth; j++) {
                 var a = this.array[i][j];
                 for (var k = 0; k < arrayOfCellsForDraw.length; k++) {
                     if (this.array[i][j].position.leftPosition === arrayOfCellsForDraw[k].position.leftPosition &&

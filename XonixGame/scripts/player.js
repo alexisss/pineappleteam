@@ -1,8 +1,9 @@
 ﻿var Player = Class.create({
     init: function (position) {
         this.position = position;
-        this.color = "purple";
+        //this.color = "purple";
         this.radius = 10;
+        this.userChoise = $(".radio");
     },
 
     moveUp: function (distance) {
