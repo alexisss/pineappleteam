@@ -49,8 +49,8 @@
     //    return false;
     //},
 
-    hasWon: function (playfield) {
-        if (playfield.calculatePoints() > 1700) {
+    hasWon: function () {
+        if (this.playfield.calculatePoints() > 1700) {
             return true;
         }
         return false;
