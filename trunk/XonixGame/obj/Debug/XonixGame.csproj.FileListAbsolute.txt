@@ -13,3 +13,8 @@ C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\bin
 C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\obj\Debug\XonixGame.dll
 C:\Users\user\Desktop\teleric\StruktoriOtDanniIAlgoritmi\Pineapple\XonixGame\obj\Debug\XonixGame.pdb
+D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\bin\XonixGame.dll
+D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\bin\XonixGame.pdb
+D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
+D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\obj\Debug\XonixGame.dll
+D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\obj\Debug\XonixGame.pdb
