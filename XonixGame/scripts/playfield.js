@@ -27,7 +27,8 @@ var Playfield = Class.create({
         }
     },
 
-    seedCell: function (arrayOfCellsForDraw) {
+    seedArrayOfCells: function (arrayOfCellsForDraw) {
+       
         for (var i = 0; i < parseInt(this.canvas.width) / this.cellWidth; i++) {
             for (var j = 0; j < parseInt(this.canvas.height) / this.cellHeight; j++) {
                 var a = this.array[i][j];
@@ -40,6 +41,10 @@ var Playfield = Class.create({
                 }
             }
         }
+    },
+    seedCell : function myfunction(row, col) {
+        this.array[row][col].isSown = true;
+        this.filledCellsCounter++;
     },
     //Added because of the enemy, so that it knows if the cell is sown or not
     isSown: function (topLeftPosition) {
