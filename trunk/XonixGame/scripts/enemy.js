@@ -8,32 +8,33 @@
     },
 
     moveTop: function (playfield) {
-        var newLeft = this.position.leftPossition;
-        var newTop = this.position.topPossition + this.y;
+        var newLeft = this.position.leftPosition;
+        var newTop = this.position.topPosition + this.y;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
         if (!playfield.isSown(rowIndex, colIndex) &&
-            this.position.topPossition > 0)
+            this.position.topPosition > 0)
         {
-            this.position.topPossition += this.y / 2;
+            this.position.topPosition -= this.y / 2;
         }
     },
 
     moveBottom: function (playfield) {
-        var newLeft = this.position.leftPossition;
-        var newTop = this.position.topPossition - this.y;
+        var newLeft = this.position.leftPosition;
+        var newTop = this.position.topPosition - this.y;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
         if (!playfield.isSown(rowIndex, colIndex) &&            
-            this.position.topPossition < parseInt(playfield.canvas.height) - 10) {
+            this.position.topPosition < parseInt(playfield.canvas.height) - 10) {
 
-            this.position.topPossition -= this.y / 2;
+            this.position.topPosition += this.y / 2;
+            
         }
     },
 
     moveLeft: function (playfield) {
-        var newLeft = this.position.leftPossition - this.x;
-        var newTop = this.position.topPossition;
+        var newLeft = this.position.leftPosition - this.x;
+        var newTop = this.position.topPosition;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
         if (this.position.leftPosition > 0 &&
@@ -44,8 +45,8 @@
     },
 
     moveRight: function (playfield) {
-        var newLeft = this.position.leftPossition + this.x;
-        var newTop = this.position.topPossition;
+        var newLeft = this.position.leftPosition + this.x;
+        var newTop = this.position.topPosition;
         var colIndex = parseInt((newLeft) / 14);
         var rowIndex = parseInt((newTop) / 10);
         if (this.position.leftPosition < parseInt(playfield.canvas.width) &&
@@ -59,24 +60,21 @@
        var direction = getRandomInt();
        switch (direction) {
            case 0:
-               console.log("move t");
                this.moveTop(playfield);
                break;
            case 1:
-               console.log("move b");
                this.moveBottom(playfield);
                break;
            case 2:
-               console.log("move r");
                this.moveRight(playfield);
                break;
            case 3:
-               console.log("move l");
                this.moveLeft(playfield);
                break;
            default:
                break;
-       }        
+       }
+       console.log(this.position.leftPosition + ", " + this.position.topPosition);
     }
 });
 
