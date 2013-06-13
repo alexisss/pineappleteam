@@ -12,7 +12,7 @@ var c2 = new Cell(ct2, "red");
 var c3 = new Cell(ct3, "purple");
 var c10 = new Cell(ct10, "green");
 var arr = new Array(c1, c2, c3, c10);
-playfield.sow(arr);
+playfield.seedCell(arr);
 
 var gameDraw = new GameDraw();
 gameDraw.drawField(playfield);
@@ -20,7 +20,7 @@ var gameRules = new GameRules();
 var ct4 = new CellTopLeft(28, 10);
 var playerCell = new Cell(ct4, "red");
 
-var playerPosition = new CellTopLeft(50, 50);
+var playerPosition = new CellTopLeft(0, 0);
 var player = new Player(playerPosition);
 
 var enemyPosition = new CellTopLeft(150, 150);
@@ -30,9 +30,6 @@ setInterval(function () {
     gameDraw.clearAll();
     gameDraw.draw(player, playfield, enemy)
 }, 50);
-
-
-
 
 $("body").keydown(function (e) {
     if (e.keyCode == 37) { // left   
