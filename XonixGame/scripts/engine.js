@@ -26,7 +26,7 @@ function update() {
     } else if (gameRules.isBorderReached) {
         //TODO method for calculating subfield to be drown
         // subField must be an array of cells (containing pathSoFar and inner cells)
-        playfield.sow(subField);
+        playfield.seedCell(subField);
         gameDrower.drawSubField(subField);
     } else if (true) {
         //TODO - check for game end 
