@@ -2,8 +2,7 @@
 var Player = Class.create({
     init: function (position) {
         this.position = position;
-<<<<<<< .mine=======        this.color = "purple";
->>>>>>> .theirs        this.radius = 10;
+        this.radius = 10;
         
     },
 
