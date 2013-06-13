@@ -1,4 +1,5 @@
 ﻿/// <reference path="GameDraw.js" />
+/// <reference path="player.js" />
 var Playfield = Class.create({
     init: function () {
         //this.arrayOfCells = arrayOfCells;
@@ -48,31 +49,3 @@ var Playfield = Class.create({
     }
 
 });
-
-// test code
-var playfield = new Playfield();
-
-var ct1 = new CellTopLeft(0, 0);
-var ct2 = new CellTopLeft(14, 10);
-var ct3 = new CellTopLeft(28, 10);
-var ct10 = new CellTopLeft(56, 10);
-var c1 = new Cell(ct1, "red");
-var c2 = new Cell(ct2, "red");
-var c3 = new Cell(ct3, "purple");
-var c10 = new Cell(ct10, "green");
-var arr = new Array(c1, c2, c3, c10);
-playfield.sow(arr);
-
-var gameDraw = new GameDraw();
-gameDraw.drawField(playfield);
-var gameRulse = new GameRules();
-var ct4 = new CellTopLeft(28, 10);
-var playerCell = new Cell(ct4, "red");
-var yes = gameRulse.isBorderReached(playerCell, playfield);
-console.log(yes);
-// step on his path --> ans must be yes
-var ct5 = new CellTopLeft(28, 10);
-var playerCellStep = new Cell(ct5, "red");
-var ans = gameRulse.isPlayerStepOnHisPath(playerCellStep, [playerCell, playerCellStep]);
-console.log(ans);
-

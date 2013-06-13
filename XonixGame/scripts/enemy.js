@@ -1,7 +1,8 @@
 ﻿var Enemy = Class.create({
     init: function (position, color) {
         this.position = position;
-        this.color = color;        
+        this.color = "red";
+        this.radius = 10;
     },
     move: function() {
         if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition + y))) {
