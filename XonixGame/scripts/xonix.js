@@ -35,7 +35,7 @@ userPalyerChoise.addEventListener("click", function (ev) {
 
 
 var enemyPosition = new CellTopLeft(14, 0);
-var enemy = new Enemy(enemyPosition, "red");
+var enemy = EnemyModule.createEnemy(enemyPosition, "red");
 
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemy, playfield);
