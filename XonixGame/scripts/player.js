@@ -1,9 +1,10 @@
-﻿var Player = Class.create({
+﻿var PlayerModule = (function () { 
+var Player = Class.create({
     init: function (position) {
         this.position = position;
-        this.color = "purple";
-        this.radius = 10;
-        this.userChoise = $(".radio");
+<<<<<<< .mine=======        this.color = "purple";
+>>>>>>> .theirs        this.radius = 10;
+        
     },
 
     moveUp: function (distance) {
@@ -30,3 +31,30 @@
         }
     }
 });
+
+var GrandMa = Class.create({
+    init: function (position) {
+        this._super.init.call(this, position);
+        this.color = "purple";
+    }
+});
+
+GrandMa.inherit(Player);
+
+var GrandPa = Class.create({
+    init: function (position) {
+        this._super.init.call(this, position);
+        this.color = "yellow";
+    }
+});
+
+GrandPa.inherit(Player);
+return {
+    GrandMa : function (posistion) {
+        return new GrandMa(posistion)
+    },
+    GrandPa: function (position) {
+        return new GrandPa(position)
+    },
+}
+}());

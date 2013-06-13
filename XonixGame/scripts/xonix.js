@@ -20,10 +20,22 @@ var ct4 = new CellTopLeft(28, 10);
 var playerCell = new Cell(ct4, "red");
 
 var playerPosition = new CellTopLeft(0, 0);
-var player = new Player(playerPosition);
+var player = PlayerModule.GrandMa(playerPosition);
 
-var enemyPosition = new CellTopLeft(14, 0);
-var enemy = new Enemy(enemyPosition, "red");
+
+var userPalyerChoise = $("#player")[0];
+userPalyerChoise.addEventListener("click", function (ev) {
+    var button = ev.target;
+    if (button.value === "GrandMa") {
+        player = PlayerModule.GrandMa(playerPosition);
+    } else if (button.value === "GrandPa") {
+        player = PlayerModule.GrandPa(playerPosition);
+    }
+}, false);
+
+
+var enemyPosition = new CellTopLeft(150, 150);
+var enemy = new Enemy(enemyPosition);
 
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemy, playfield);
