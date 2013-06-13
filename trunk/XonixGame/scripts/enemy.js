@@ -8,22 +8,19 @@
     move: function() {
         
         if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition + y))) {
-            this.position.leftPossition += x;
-            this.position.topPossition += y;
-
+           
         } else if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition + y))) {
-            this.position.leftPossition -= x;
-            this.position.topPossition += y;
+            х = х * (-1);
 
         } else if (!playfield.isSown(new CellTopLeft(position.leftPossition + x, position.topPossition - y))) {
-            this.position.leftPossition += x;
-            this.position.topPossition -= y;
+            y = y * (-1);
 
         } else if (!playfield.isSown(new CellTopLeft(position.leftPossition - x, position.topPossition - y))) {
-            this.position.leftPossition -= x;
-            this.position.topPossition -= y;
+            х = х * (-1);
+            х = х * (-1);
         }
 
-        //TODO changing vectors
+        position.leftPossition = position.leftPossition + x;
+        position.leftPossition = position.topPossition + y;
     }
 });
