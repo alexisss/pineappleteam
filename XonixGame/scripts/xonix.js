@@ -22,13 +22,14 @@ var playerCell = new Cell(ct4, "red");
 var playerPosition = new CellTopLeft(0, 0);
 var player = new Player(playerPosition);
 
-var enemyPosition = new CellTopLeft(0, 700);
+var enemyPosition = new CellTopLeft(14, 0);
 var enemy = new Enemy(enemyPosition, "red");
 
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemy, playfield);
 
 setInterval(function () {
+
     if (gameRules.hasWon()) {
         //do something
     }
@@ -43,30 +44,33 @@ setInterval(function () {
 }, 50);
 
 function seedVisitedCell(curretPlayer) {
-        var colIndex = parseInt((curretPlayer.position.leftPosition) / 14);
-        var rowIndex = parseInt((curretPlayer.position.topPosition) / 10);
+    var colIndex = parseInt((curretPlayer.position.leftPosition) / 14);
+    var rowIndex = parseInt((curretPlayer.position.topPosition) / 10);
     playfield.seedCell(rowIndex, colIndex);
+
 }
 
-    $("body").keydown(function (e) {
+$("body").keydown(function (e) {
 
-        if (e.keyCode == 37) { // left   
-            player.moveLeft(cellWidth);
-            seedVisitedCell(player);
-        }
-        else if (e.keyCode == 38) {
-            player.moveUp(cellHeight);
-            seedVisitedCell(player);
+    if (e.keyCode == 37) { // left   
+        player.moveLeft(cellWidth);
+        seedVisitedCell(player);
+        gameRules.checkForCollisions();
+    }
+    else if (e.keyCode == 38) {
+        player.moveUp(cellHeight);
+        seedVisitedCell(player);
+        gameRules.checkForCollisions();
+    }
+    else if (e.keyCode == 39) { // right
 
-        }
-        else if (e.keyCode == 39) { // right
-
-            player.moveRight(cellWidth, gameDraw.canvas.width);
-            seedVisitedCell(player);
-
-        }
-        else if (e.keyCode == 40) { // down
-            player.moveDown(cellHeight, gameDraw.canvas.height);
-            seedVisitedCell(player);
-        }
-    });
+        player.moveRight(cellWidth, gameDraw.canvas.width);
+        seedVisitedCell(player);
+        gameRules.checkForCollisions();
+    }
+    else if (e.keyCode == 40) { // down
+        player.moveDown(cellHeight, gameDraw.canvas.height);
+        seedVisitedCell(player);
+        gameRules.checkForCollisions();
+    }
+});
