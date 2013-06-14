@@ -18,3 +18,8 @@ D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\bin\XonixGame.pdb
 D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
 D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\obj\Debug\XonixGame.dll
 D:\HTML5, CSS3 & Java Script\JSApp\pineappleteam\XonixGame\obj\Debug\XonixGame.pdb
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XonixGame\bin\XonixGame.dll
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XonixGame\bin\XonixGame.pdb
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XonixGame\obj\Debug\XonixGame.dll
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XonixGame\obj\Debug\XonixGame.pdb
