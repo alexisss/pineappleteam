@@ -1,9 +1,9 @@
 ﻿var PlayerModule = (function () { 
 var Player = Class.create({
-    init: function (position) {
+    init: function (position, type) {
         this.position = position;
         this.radius = 10;
-        
+        this.playerType = type;
     },
 
     moveUp: function (distance) {
@@ -33,7 +33,7 @@ var Player = Class.create({
 
 var GrandMa = Class.create({
     init: function (position) {
-        this._super.init.call(this, position);
+        this._super.init.call(this, position, "grandMa");
         this.color = "purple";
     }
 });
@@ -42,7 +42,7 @@ GrandMa.inherit(Player);
 
 var GrandPa = Class.create({
     init: function (position) {
-        this._super.init.call(this, position);
+        this._super.init.call(this, position, "grandPa");
         this.color = "yellow";
     }
 });
