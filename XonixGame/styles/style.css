@@ -7,3 +7,9 @@ body
 {
 	padding:15px;
 }
+.fb-login-button
+{
+	position:absolute;
+	left:700px;
+	top:20px;
+}
