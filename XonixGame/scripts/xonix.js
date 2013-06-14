@@ -47,15 +47,18 @@ enemies.push(secondEnemy);
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemies, playfield);
 
-setInterval(function () {
+var int = setInterval(function () {
 
-    //if (gameRules.hasWon()) {
-    //    //do something
-    //}
-    //else if (gameRules.hasLost()) {
-    //    //do something else
-    //}
-    //else {
+    if (gameRules.hasWon()) {
+
+        var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+        window.open(sharer + location.href, 'sharer', 'width=626,height=436');
+        int = window.clearInterval(int);
+    }
+    else if (gameRules.hasLost()) {
+        //do something else
+    }
+    else {
     
         for (var i = 0; i < enemies.length; i++) {
             enemies[i].move(playfield);
@@ -63,7 +66,7 @@ setInterval(function () {
 
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemies);
-    //}
+    }
 }, 50);
 
 function seedVisitedCell(curretPlayer) {
