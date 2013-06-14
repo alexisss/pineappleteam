@@ -37,8 +37,15 @@ userPalyerChoise.addEventListener("click", function (ev) {
 var enemyPosition = new CellTopLeft(14, 0);
 var enemy = EnemyModule.createEnemy(enemyPosition, "red");
 
+var secondEnemyPosition = new CellTopLeft(14, 150);
+var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "red");
+
+var enemies = [];
+enemies.push(enemy);
+enemies.push(secondEnemy);
+
 gameDraw.drawField(playfield);
-var gameRules = new GameRules(player, enemy, playfield);
+var gameRules = new GameRules(player, enemies, playfield);
 
 setInterval(function () {
 
@@ -49,10 +56,13 @@ setInterval(function () {
     //    //do something else
     //}
     //else {
-        enemy.move(playfield);
+    
+        for (var i = 0; i < enemies.length; i++) {
+            enemies[i].move(playfield);
+        }
 
         gameDraw.clearAll();
-        gameDraw.draw(player, playfield, enemy);
+        gameDraw.draw(player, playfield, enemies);
     //}
 }, 50);
 

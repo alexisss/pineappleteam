@@ -33,25 +33,31 @@ var GameDraw = Class.create({
         }
     },
 
-    drawEnemy: function (player) {
+    drawPlayer: function (palyer) {
         this.ctx.beginPath();
         this.ctx.arc(player.position.leftPosition + 7, player.position.topPosition + 5, player.radius, 0, 2 * Math.PI, false);
-        //this.ctx.fillStyle = enemy.color;
-        this.ctx.fill();
-        this.ctx.closePath();
-    },
-
-    drawPlayer: function (enemy) {
-        this.ctx.beginPath();
-        this.ctx.arc(enemy.position.leftPosition + 7, enemy.position.topPosition + 5, enemy.radius, 0, 2 * Math.PI, false);
         this.ctx.fillStyle = player.color;
         this.ctx.fill();
         this.ctx.closePath();
     },
 
+    drawEnemy: function (enemy) {
+        this.ctx.beginPath();
+        this.ctx.arc(enemy.position.leftPosition + 7, enemy.position.topPosition + 5, enemy.radius, 0, 2 * Math.PI, false);
+        this.ctx.fillStyle = enemy.color;
+        this.ctx.fill();
+        this.ctx.closePath();
+    },
+
+    drawEnemies: function(enemies){
+        for (var i = 0; i < enemies.length; i++) {
+            this.drawEnemy(enemies[i]);
+        }
+    },
+
     draw: function (player, playfield, enemy) {
         this.drawField(playfield);
-        this.drawEnemy(enemy);
+        this.drawEnemies(enemies);
         this.drawPlayer(player);
     },
 
