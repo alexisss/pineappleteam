@@ -47,6 +47,13 @@ enemies.push(secondEnemy);
 gameDraw.drawField(playfield);
 var gameRules = new GameRules(player, enemies, playfield);
 
+function askForName() {
+    //var name = $("user-name").first().html(); - something like that 
+    var name = "me";
+    return name;
+}
+
+var time = 0;
 var int = setInterval(function () {
 
     if (gameRules.hasWon()) {
@@ -54,12 +61,16 @@ var int = setInterval(function () {
         var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
         window.open(sharer + location.href, 'sharer', 'width=626,height=436');
         int = window.clearInterval(int);
+        var seconds = time / 1000;
+        var name = askForName();
+        localStorage.setItem(name, seconds);
+        console.log(localStorage);
     }
     else if (gameRules.hasLost()) {
         //do something else
     }
     else {
-    
+
         for (var i = 0; i < enemies.length; i++) {
             enemies[i].move(playfield);
         }
@@ -67,6 +78,7 @@ var int = setInterval(function () {
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemies);
     }
+    time += 50;
 }, 50);
 
 function seedVisitedCell(curretPlayer) {
@@ -100,5 +112,3 @@ $("body").keydown(function (e) {
         gameRules.checkForCollisions();
     }
 });
-
-localStorage.setItem("me", "200points");

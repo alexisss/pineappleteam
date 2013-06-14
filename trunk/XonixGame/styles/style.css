@@ -19,3 +19,11 @@ body
 	left:500px;
 	top:120px;
 }
+
+#user-name
+{
+	/*display:none;*/
+	position:absolute;
+	top:20px;
+	left:150px;
+}
