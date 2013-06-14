@@ -1,7 +1,7 @@
 ﻿var GameRules = Class.create({
-    init: function (player, enemy, playfield) {
+    init: function (player, enemies, playfield) {
         this.player = player;
-        this.enemy = enemy;
+        this.enemies = enemies;
         this.playfield = playfield;
         this.lives = 5;
     },
@@ -15,12 +15,13 @@
 
     hasCollisions: function () {
         var collision = false;
-
-        if (this.player.position.leftPosition == this.enemy.position.leftPosition &&
-            this.player.position.rightPosition == this.enemy.position.rightPosition) {
-            collision = true;
+       
+        for (var i = 0; i < enemies.length; i++) {
+            if (this.player.position.leftPosition == this.enemies[i].position.leftPosition &&
+                this.player.position.rightPosition == this.enemies[i].position.rightPosition) {
+                collision = true;
+            }
         }
-
         return collision;
     },
 
