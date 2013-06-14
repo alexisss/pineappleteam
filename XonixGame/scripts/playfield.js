@@ -43,5 +43,4 @@ var Playfield = Class.create({
     calculatePoints: function () {
         return this.filledCellsCounter;
     }
-
 });
