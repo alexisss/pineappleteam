@@ -97,3 +97,5 @@ $("body").keydown(function (e) {
         gameRules.checkForCollisions();
     }
 });
+
+localStorage.setItem("me", "200points");
