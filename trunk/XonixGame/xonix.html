@@ -31,34 +31,82 @@
     
     <div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
     <div class="fb-like" data-href="http://www.facebook.com/TelerikAcademy?fref=ts" data-send="false" data-width="450" data-show-faces="true"></div>
-    <div id="color-picker">
-        Kendo color picker
-        <div class="product-display">
-            <div id="color-chooser"></div>
+    <div class="demo-section">
+        <div id="color-picker">
+            <h2>Pick a playground color</h2>
+            <div class="product-display">
+                <div id="color-chooser"></div>
+            </div>
         </div>
     </div>
 
     <script>
         $("#color-chooser").kendoColorPalette({
-            palette: ["#6699FF","#ddd1c3", "#d2d2d2", "#746153", "#3a4c8b", "#ffcc33", "#fb455f", "#ac120f"],
+            palette: ["basic"],
             tileSize: 30,
-            value: "#6699FF",
+            value: "#99d9ea",
             change: function () {
                 var colorId = this.value().substring(1);
                 $('#playfield').css('background-color', '#' + colorId);
             }
         });
     </script>
+    <img id="grandMa" src="styles/img/grandMaPlayer.png" style="display: none;" />
+    <img id="grandPa" src="styles/img/grandPaPlayer.png" style="display: none;" />
+            <div class="demo-section">
+                <h2>Pick a player</h2>
+                <input id="players" style="width: 400px;"/>
+            </div>           
 
-    <div id="player">
-        select player : 
-        <form>
-            <label for="radio1">GrandMa</label>
-            <input type="radio" name="players" value="GrandMa" id="radio1" class ="radio" checked="checked"/>
-            <label for="radio2">GrandPa</label>
-            <input type="radio" name="players" value="GrandPa" id="radio2" class ="radio" />
-        </form>
-    </div>
+            <script>
+                $(document).ready(function () {
+                $("#players").kendoComboBox({
+                        filter: "startswith",
+                        dataTextField: "ContactName",
+                        dataValueField: "CustomerID",
+                        template: '<img src="styles/img/${data.ContactName}.jpg" alt=\"${data.ContactName}\" height="150" />' +
+                                '<h3>${ data.ContactName }</h3>' +
+                                '<p>${ data.CompanyName }</p>',
+                        dataSource: [{"ContactName":"GrandPa","CompanyName":"Pineapple Team"}, {"ContactName":"GrandMa","CompanyName":"Pineapple Team"}]
+                    });
+
+                    var combobox = $("#players").data("kendoComboBox");
+                    combobox.bind("change", function(e){
+                    changePlayerType(e, this);
+                    });
+                    combobox.select(1);
+                });
+            </script>
+
+            <style>
+                
+                .demo-section {
+                    width: 400px;
+                    padding: 30px;
+                }
+                .demo-section h2 {
+                    text-transform: uppercase;
+                    font-size: 1.2em;
+                    margin-bottom: 10px;
+                }
+                #customers-list .k-item {
+                    overflow: hidden; /* clear floated images */
+                }
+                #customers-list img {
+                    -moz-box-shadow: 0 0 2px rgba(0,0,0,.4);
+                    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.4);
+                    box-shadow: 0 0 2px rgba(0,0,0,.4);
+                    float: left;
+                    margin: 5px 20px 5px 0px;
+                }
+                #customers-list h3 {
+                    margin: 30px 0 10px 0;
+                    font-size: 2em;
+                }
+                #customers-list p {
+                    margin: 0;
+                }
+            </style>
 
     <form>
         <label for="easy-level">Easy</label>
@@ -81,11 +129,10 @@
     <script src="scripts/GameDraw.js"></script>
     <script src="scripts/Playfield.js"></script> 
     
-     
     <script src="scripts/enemy.js"></script>
     <!--<script src="scripts/engine.js"></script>-->
     
-<script src="scripts/xonix.js"></script>
+    <script src="scripts/xonix.js"></script>
     <script type="text/javascript">
 
     </script>

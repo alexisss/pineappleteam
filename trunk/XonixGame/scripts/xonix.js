@@ -22,18 +22,6 @@ var playerCell = new Cell(ct4, "red");
 var playerPosition = new CellTopLeft(0, 0);
 var player = PlayerModule.GrandMa(playerPosition);
 
-
-var userPalyerChoise = $("#player")[0];
-userPalyerChoise.addEventListener("click", function (ev) {
-    var button = ev.target;
-    if (button.value === "GrandMa") {
-        player = PlayerModule.GrandMa(playerPosition);
-    } else if (button.value === "GrandPa") {
-        player = PlayerModule.GrandPa(playerPosition);
-    }
-}, false);
-
-
 var enemyPosition = new CellTopLeft(14, 0);
 var enemy = EnemyModule.createEnemy(enemyPosition, "red");
 
@@ -86,6 +74,15 @@ function seedVisitedCell(curretPlayer) {
     var rowIndex = parseInt((curretPlayer.position.topPosition) / 10);
     playfield.seedCell(rowIndex, colIndex);
 
+}
+
+function changePlayerType(e, data){    
+    var type = data.value();
+    if (type === "GrandMa") {
+        player = PlayerModule.GrandMa(playerPosition, type);
+    } else if (type === "GrandPa") {
+        player = PlayerModule.GrandPa(playerPosition, type);
+    }
 }
 
 $("body").keydown(function (e) {

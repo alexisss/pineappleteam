@@ -33,12 +33,15 @@ var GameDraw = Class.create({
         }
     },
 
-    drawPlayer: function (palyer) {
-        this.ctx.beginPath();
-        this.ctx.arc(player.position.leftPosition + 7, player.position.topPosition + 5, player.radius, 0, 2 * Math.PI, false);
-        this.ctx.fillStyle = player.color;
-        this.ctx.fill();
-        this.ctx.closePath();
+    drawPlayer: function (player) {
+        var playerTypeImg = document.getElementById(player.playerType);
+        this.ctx.drawImage(playerTypeImg, player.position.leftPosition + 7, player.position.topPosition - 45 + 5);
+
+        //this.ctx.beginPath();
+        //this.ctx.arc(player.position.leftPosition + 7, player.position.topPosition + 5, player.radius, 0, 2 * Math.PI, false);
+        //this.ctx.fillStyle = player.color;
+        //this.ctx.fill();
+        //this.ctx.closePath();
     },
 
     drawEnemy: function (enemy) {
