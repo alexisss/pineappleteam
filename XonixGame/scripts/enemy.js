@@ -13,7 +13,7 @@
 
         moveTop: function (playfield) {
             var newLeft = this.position.leftPosition;
-            var newTop = this.position.topPosition + this.y;
+            var newTop = this.position.topPosition - this.y;
             var colIndex = parseInt((newLeft) / 14);
             var rowIndex = parseInt((newTop) / 10);
             if (!playfield.isSown(rowIndex, colIndex) &&
@@ -28,7 +28,7 @@
 
         moveBottom: function (playfield) {
             var newLeft = this.position.leftPosition;
-            var newTop = this.position.topPosition - this.y;
+            var newTop = this.position.topPosition + this.y;
             var colIndex = parseInt((newLeft) / 14);
             var rowIndex = parseInt((newTop) / 10);
             if (!playfield.isSown(rowIndex, colIndex) &&            
