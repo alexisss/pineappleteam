@@ -19,7 +19,7 @@ var Player = Class.create({
     },
 
     moveLeft: function (distance) {
-        if (this.position.leftPosition > 28) {
+        if (this.position.leftPosition > 14) {
             this.position.leftPosition -= distance;
         }
     },
