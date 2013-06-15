@@ -11,84 +11,52 @@
     <script src="scripts/kendo.web.min.js"></script>
 </head>
 <body>
-
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/bg_BG/all.js#xfbml=1&appId=470404223053971";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-    <script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/bg_BG/all.js#xfbml=1&appId=470404223053971";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-    <div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
-    <div class="fb-like" data-href="http://www.facebook.com/TelerikAcademy?fref=ts" data-send="false" data-width="450" data-show-faces="true"></div>
-    <div class="demo-section">
-        <div id="color-picker">
-            <h2>Pick a playground color</h2>
-            <div class="product-display">
-                <div id="color-chooser"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        $("#color-chooser").kendoColorPalette({
-            palette: ["basic"],
-            tileSize: 30,
-            value: "#99d9ea",
-            change: function () {
-                var colorId = this.value().substring(1);
-                $('#playfield').css('background-color', '#' + colorId);
-            }
-        });
-    </script>
-    <img id="grandMa" src="styles/img/grandMaPlayer.png" style="display: none;" />
-    <img id="grandPa" src="styles/img/grandPaPlayer.png" style="display: none;" />
-    <div class="demo-section">
-        <h2>Pick a player</h2>
-        <input id="players" style="width: 400px;" />
-    </div>
-
-    <script>
-        $(document).ready(function () {
-            $("#players").kendoComboBox({
-                filter: "startswith",
-                dataTextField: "ContactName",
-                dataValueField: "CustomerID",
-                template: '<img src="styles/img/${data.ContactName}.jpg" alt=\"${data.ContactName}\" height="150" />' +
-                        '<h3>${ data.ContactName }</h3>' +
-                        '<p>${ data.CompanyName }</p>',
-                dataSource: [{ "ContactName": "GrandPa", "CompanyName": "Pineapple Team" }, { "ContactName": "GrandMa", "CompanyName": "Pineapple Team" }]
-            });
-
-            var combobox = $("#players").data("kendoComboBox");
-            combobox.bind("change", function (e) {
-                changePlayerType(e, this);
-            });
-            combobox.select(0);
-        });
-    </script>
-
-    <form>
-        <label for="easy-level">Easy</label>
-        <input type="radio" name="levels" value="Easy" id="easy-level" checked="checked" />
-        <label for="medium-level">Medium</label>
-        <input type="radio" name="levels" value="Medium" id="medium-level" />
-        <label for="hard-level">Hard</label>
-        <input type="radio" name="levels" value="Hard" id="hard-level" />
-    </form>
+    <header>
+        <h1>Cool XONIX game</h1>
+    </header>
 
     <canvas id="playfield" width="700" height="400"></canvas>
 
+    <a href="#" id="reset-button">Reset</a>
+   
+     <div id="game-options">
+        <div class="demo-section" id="color-section">
+            <div id="color-picker">
+                <h2>Pick a playground color</h2>
+                <div class="product-display">
+                    <div id="color-chooser"></div>
+                </div>
+            </div>
+        </div>
+
+        <img id="grandMa" src="styles/img/grandMaPlayer.png" style="display: none;" />
+        <img id="grandPa" src="styles/img/grandPaPlayer.png" style="display: none;" />
+
+        <div class="demo-section" id="players-section">
+            <h2>Pick a player</h2>
+            <input id="players" style="width: 400px;" />
+        </div>
+
+        <div id="levels-section" class="demo-section">
+            <h2>Pick a level difficulty</h2>
+            <form>
+                <label for="easy-level">Easy</label>
+                <input type="radio" name="levels" value="Easy" id="easy-level" checked="checked" />
+                <label for="medium-level">Medium</label>
+                <input type="radio" name="levels" value="Medium" id="medium-level" />
+                <label for="hard-level">Hard</label>
+                <input type="radio" name="levels" value="Hard" id="hard-level" />
+            </form>
+        </div>
+    </div>
+    <div id="facebook-buttons">
+        <div id="fb-root"></div>
+        <!--<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>-->
+        <div class="fb-like" data-href="http://www.facebook.com/TelerikAcademy?fref=ts" data-send="false" data-width="450" data-show-faces="true"></div>
+    </div>
+
+    <script src="scripts/facebook.js"></script>
+    <script src="scripts/kendo.js"></script>
     <script src="scripts/ClassicalOOPExtensions.js"></script>
     <script src="scripts/CellTopLeft.js"></script>
     <script src="scripts/Cell.js"></script>
@@ -96,10 +64,7 @@
     <script src="scripts/player.js"></script>
     <script src="scripts/GameDraw.js"></script>
     <script src="scripts/Playfield.js"></script>
-
     <script src="scripts/enemy.js"></script>
-    <!--<script src="scripts/engine.js"></script>-->
-
     <script src="scripts/xonix.js"></script>
 </body>
 

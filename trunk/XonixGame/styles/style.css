@@ -1,7 +1,9 @@
 ﻿canvas
 {
-	background-color: #99d9ea;
-	margin-top: 30px;
+	background-color: #99d9ea;	
+	position:absolute;
+	top:90px;
+	border:1px solid blue;
 }
 
 body
@@ -9,32 +11,24 @@ body
 	padding: 15px;
 }
 
-.fb-login-button
+#facebook-buttons
 {
 	position: absolute;
-	left: 700px;
-	top: 20px;
-}
-
-.fb-like
-{
-	position: absolute;
-	left: 500px;
-	top: 120px;
+	left: 750px;
+	top: 520px;
 }
 
 .demo-section
 {
 	width: 400px;
-	padding: 30px;
 }
 
-	.demo-section h2
-	{
-		text-transform: uppercase;
-		font-size: 1.2em;
-		margin-bottom: 10px;
-	}
+.demo-section h2
+{
+	text-transform: uppercase;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
 
 #customers-list .k-item
 {
@@ -60,3 +54,33 @@ body
 {
 	margin: 0;
 }
+#game-options
+{
+	position: absolute;
+	left: 800px;
+	top: 20px;
+}
+h1
+{
+	padding:0;
+	margin:0;
+}
+
+#reset-button
+{
+	text-decoration:none;
+	color:lightcoral;
+	background-color:lightblue;
+	font-weight:bold;
+	font-size:1.5em;
+	padding: 7px 15px;
+	border:1px solid blue;
+	border-radius:10px;
+	position:absolute;
+	top:520px;
+}
+	#reset-button:hover
+	{
+		background-color:cadetblue;
+		color:indianred;
+	}
