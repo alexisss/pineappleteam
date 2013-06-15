@@ -35,13 +35,7 @@ var GameDraw = Class.create({
 
     drawPlayer: function (player) {
         var playerTypeImg = document.getElementById(player.playerType);
-        this.ctx.drawImage(playerTypeImg, player.position.leftPosition + 7, player.position.topPosition - 70 + 5);
-
-        //this.ctx.beginPath();
-        //this.ctx.arc(player.position.leftPosition + 7, player.position.topPosition + 5, player.radius, 0, 2 * Math.PI, false);
-        //this.ctx.fillStyle = player.color;
-        //this.ctx.fill();
-        //this.ctx.closePath();
+        this.ctx.drawImage(playerTypeImg, player.position.leftPosition - 10, player.position.topPosition - 70 + 5);
     },
 
     drawEnemy: function (enemy) {
