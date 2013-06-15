@@ -63,23 +63,13 @@
 
         calculatePoints: function () {
             return this.filledCellsCounter;
-        }
-    });
-
-    return {
-        Playfield: function (canvasWidth, canvasHeight) {
-            return new Playfield(canvasWidth, canvasHeight);
         },
-        Cell: function (position, color) {
-            return new Cell(position, color);
-        },
-    },
 
-        seedBorder : function () {
+        seedBorder: function () {
             var top = 6;// player height 6
-            var bottom = (this.canvasHeight - 60)/10; // from 34 rows to 40
+            var bottom = (this.canvasHeight - 60) / 10; // from 34 rows to 40
             var left = 2;//2 colls
-            var right = (this.canvasWidth - 42)/14;//from 47 to 50
+            var right = (this.canvasWidth - 42) / 14;//from 47 to 50
 
             // seed top border
             for (var row = 0; row < top; row++) {
@@ -109,4 +99,14 @@
                 }
             }
         },
-        }(jQuery));
+    });
+
+    return {
+        Playfield: function (canvasWidth, canvasHeight) {
+            return new Playfield(canvasWidth, canvasHeight);
+        },
+        Cell: function (position, color) {
+            return new Cell(position, color);
+        },
+    }
+}(jQuery));
