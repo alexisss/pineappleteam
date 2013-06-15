@@ -26,7 +26,7 @@
                 this.array.push(new Array());
                 for (var col = 0 ; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
                     var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
-                    var currentCell = new Cell(currentCellTopLeft, "green");
+                    var currentCell = new Cell(currentCellTopLeft, "cornflowerblue");
 
                     this.array[row].push(currentCell);
                 }

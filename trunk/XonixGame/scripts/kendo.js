@@ -13,7 +13,7 @@ $(document).ready(function () {
         filter: "startswith",
         dataTextField: "ContactName",
         dataValueField: "CustomerID",
-        template: '<img src="styles/img/${data.ContactName}.jpg" alt=\"${data.ContactName}\" height="150" />' +
+        template: '<img src="../styles/img/${data.ContactName}.jpg" alt=\"${data.ContactName}\" height="150" />' +
                 '<h3>${ data.ContactName }</h3>' +
                 '<p>${ data.CompanyName }</p>',
         dataSource: [{ "ContactName": "GrandPa", "CompanyName": "Pineapple Team" }, { "ContactName": "GrandMa", "CompanyName": "Pineapple Team" }]
