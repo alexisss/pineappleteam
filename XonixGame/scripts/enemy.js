@@ -1,6 +1,6 @@
 ﻿var EnemyModule = function(){
     var Enemy = Class.create({
-        init: function (position, color) {
+        init: function (position, color, canvasWidth, canvasHeight) {
             this.position = position;
             this.color = color;
             this.radius = 10;
@@ -9,6 +9,8 @@
             this.countMove = 0;
             this.direction = 0;
             this.count = 0;
+            this.canvasWidth = canvasWidth;
+            this.canvasHeight = canvasHeight;
         },
 
         moveTop: function (playfield) {
@@ -32,7 +34,7 @@
             var colIndex = parseInt((newLeft) / this.x);
             var rowIndex = parseInt((newTop) / this.y);
             if (!playfield.isSown(rowIndex, colIndex) &&            
-                this.position.topPosition < parseInt(playfield.canvas.height) - this.y) {
+                this.position.topPosition < parseInt(canvasHeight) - this.y) {
 
                 this.position.topPosition += this.y;
             
@@ -62,7 +64,7 @@
             var newTop = this.position.topPosition;
             var colIndex = parseInt((newLeft) / this.x);
             var rowIndex = parseInt((newTop) / this.y);
-            if (this.position.leftPosition < (parseInt(playfield.canvas.width)- this.x) &&
+            if (this.position.leftPosition < (parseInt(canvasWidth) - this.x) &&
                 !playfield.isSown(rowIndex, colIndex)) {
 
                 this.position.leftPosition += this.x;
@@ -107,7 +109,7 @@
     }
 
     return {        
-        createEnemy: function (position, color) {
+        createEnemy: function (position, color, canvasWidth, canvasHeight) {
             return new Enemy(position, color)
         }
     }
