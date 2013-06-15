@@ -20,7 +20,8 @@ enemies.push(enemy);
 enemies.push(secondEnemy);
 
 gameDraw.drawField(playfield);
-var gameRules = new GameRules(player, enemies, playfield);
+
+var time = 0;var gameRules = new GameRules(player, enemies, playfield);
 
 function askForName() {
     //var name = $("user-name").first().html(); - something like that 
@@ -28,11 +29,12 @@ function askForName() {
     return name;
 }
 
-var time = 0;
+
 function reset() {
-    player.reset(new CellTopLeft(0, 0));
+    player.reset(new CellTopLeft(14, 60));
     playfield.reset();
 }
+
 var int = setInterval(function () {
     if (gameRules.hasWon()) {
         var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
