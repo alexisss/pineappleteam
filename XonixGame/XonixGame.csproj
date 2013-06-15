@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\console.js" />
+    <Content Include="scripts\events.js" />
+    <Content Include="scripts\facebook.js" />
+    <Content Include="scripts\kendo.js" />
     <Content Include="styles\examples-offline.css" />
     <Content Include="scripts\jquery.min.js" />
     <Content Include="styles\kendo.common.min.css" />

@@ -11,10 +11,10 @@ var playerPosition = new CellTopLeft(14, 60);
 var player = PlayerModule.GrandPa(playerPosition);
 
 var enemyPosition = new CellTopLeft(210, 120);
-var enemy = EnemyModule.createEnemy(enemyPosition, "red", gameDraw.canvas.width, gameDraw.canvas.height);
+var enemy = EnemyModule.createEnemy(enemyPosition, "red",canvasWidth, canvasHeight);
 
 var secondEnemyPosition = new CellTopLeft(112, 150);
-var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "red", gameDraw.canvas.width, gameDraw.canvas.height);
+var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "purple", canvasWidth, canvasHeight);
 
 var enemies = [];
 enemies.push(enemy);
@@ -22,7 +22,8 @@ enemies.push(secondEnemy);
 
 gameDraw.drawField(playfield);
 
-var time = 0;var gameRules = new GameRules(player, enemies, playfield);
+var time = 0;
+var gameRules = new GameRules(player, enemies, playfield);
 
 function askForName() {
     //var name = $("user-name").first().html(); - something like that 
@@ -34,30 +35,31 @@ function askForName() {
 function reset() {
     player.reset(new CellTopLeft(14, 60));
     playfield.reset();
+    time = 0;
 }
 
 var int = setInterval(function () {
-    if (gameRules.hasWon()) {
-        //var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
-        //window.open(sharer + location.href, 'sharer', 'width=626,height=436');
-        int = window.clearInterval(int);
-        var seconds = time / 1000;
-        var name = askForName();
-        reset();
-        localStorage.setItem(name, seconds);
-        console.log(localStorage);
-    }
-    else if (gameRules.hasLost()) {
-        //do something else
-    }
-    else {
+    //if (gameRules.hasWon()) {
+    //    //var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+    //    //window.open(sharer + location.href, 'sharer', 'width=626,height=436');
+    //    int = window.clearInterval(int);
+    //    var seconds = time / 1000;
+    //    var name = askForName();
+    //    reset();
+    //    localStorage.setItem(name, seconds);
+    //    console.log(localStorage);
+    //}
+    //else if (gameRules.hasLost()) {
+    //    //do something else
+    //}
+    //else {
         for (var i = 0; i < enemies.length; i++) {
             enemies[i].move(playfield);
         }
 
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemies);
-    }
+    //}
     time += 50;
 }, 50);
 
