@@ -28,6 +28,10 @@ var Player = Class.create({
         if (this.position.leftPosition < maxWidth - 42) { //must be something like canvas width
             this.position.leftPosition += distance;
         }
+    },
+
+    reset: function (position) {
+        this.position = position;
     }
 });
 

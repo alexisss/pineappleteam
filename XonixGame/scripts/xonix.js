@@ -29,15 +29,18 @@ function askForName() {
 }
 
 var time = 0;
+function reset() {
+    player.reset(new CellTopLeft(0, 0));
+    playfield.reset();
+}
 var int = setInterval(function () {
-
     if (gameRules.hasWon()) {
-
         var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
         window.open(sharer + location.href, 'sharer', 'width=626,height=436');
         int = window.clearInterval(int);
         var seconds = time / 1000;
         var name = askForName();
+        reset();
         localStorage.setItem(name, seconds);
         console.log(localStorage);
     }
@@ -45,7 +48,6 @@ var int = setInterval(function () {
         //do something else
     }
     else {
-
         for (var i = 0; i < enemies.length; i++) {
             enemies[i].move(playfield);
         }
@@ -63,7 +65,7 @@ function seedVisitedCell(curretPlayer) {
 
 }
 
-function changePlayerType(e, data){    
+function changePlayerType(e, data) {
     var type = data.value();
     if (type === "GrandMa") {
         player = PlayerModule.GrandMa(playerPosition, type);
@@ -95,4 +97,9 @@ $("body").keydown(function (e) {
         seedVisitedCell(player);
         gameRules.checkForCollisions();
     }
+});
+
+
+$("body").click(function() {
+    reset();
 });

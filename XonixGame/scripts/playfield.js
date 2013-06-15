@@ -1,26 +1,26 @@
 ﻿var PlayfieldModule = (function ($) {
 
-var Cell = Class.create({
-     init: function (position, color) {
-         this.position = position;
-         this.color = color;
-         this.width = 14;
-         this.height = 10;
-         this.isSown = false;
-     },
-});
+    var Cell = Class.create({
+        init: function (position, color) {
+            this.position = position;
+            this.color = color;
+            this.width = 14;
+            this.height = 10;
+            this.isSown = false;
+        },
+    });
 
-var Playfield = Class.create({
-    init: function (canvasWidth, canvasHeight) {
+    var Playfield = Class.create({
+        init: function (canvasWidth, canvasHeight) {
 
-        this.array = new Array();
-        this.filledCellsCounter = 0;
-        this.canvas = $("playfield");
+            this.array = new Array();
+            this.filledCellsCounter = 0;
+            this.canvas = $("playfield");
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
 
-        this.cellHeight = 10;
-        this.cellWidth = 14;
+            this.cellHeight = 10;
+            this.cellWidth = 14;
 
         for (var row = 0; row < parseInt(this.canvasHeight) / this.cellHeight ; row++) {
             this.array.push(new Array());
@@ -28,7 +28,8 @@ var Playfield = Class.create({
                 var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
                 var currentCell = new Cell(currentCellTopLeft, "green");
 
-                this.array[row].push(currentCell);
+                    this.array[row].push(currentCell);
+                }
             }
         }
 
@@ -36,25 +37,44 @@ var Playfield = Class.create({
         this.seedBorder();
     },
 
-    seedCell: function myfunction(row, col) {
-        if (row >= 0 && row < this.array.length) {
-            if (col >= 0 && col < this.array[row].length) {
-                this.array[row][col].isSown = true;
-                this.filledCellsCounter++;
+        reset: function (c) {
+            for (var row = 0; row < this.array.length; row++) {
+                for (var col = 0 ; col <this.array[0].length; col++) {
+                    this.array[row][col].isSown = false;
+                }
             }
-        }
-    },
+            this.array[0][0].isSown = true;
+        },
 
-    isSown: function (row, col) {
-        if (row >= 0 && row < this.array.length) {
-            if (col >= 0 && col < this.array[row].length) {
-                return this.array[row][col].isSown;
+        seedCell: function myfunction(row, col) {
+            if (row >= 0 && row < this.array.length) {
+                if (col >= 0 && col < this.array[row].length) {
+                    this.array[row][col].isSown = true;
+                    this.filledCellsCounter++;
+                }
             }
-        }
-    },
+        },
 
-    calculatePoints: function () {
-        return this.filledCellsCounter;
+        isSown: function (row, col) {
+            if (row >= 0 && row < this.array.length) {
+                if (col >= 0 && col < this.array[row].length) {
+                    return this.array[row][col].isSown;
+                }
+            }
+        },
+
+        calculatePoints: function () {
+            return this.filledCellsCounter;
+        }
+    });
+
+    return {
+        Playfield: function (canvasWidth, canvasHeight) {
+            return new Playfield(canvasWidth, canvasHeight);
+        },
+        Cell: function (position, color) {
+            return new Cell(position, color);
+        },
     },
 
     seedBorder : function () {
@@ -91,14 +111,4 @@ var Playfield = Class.create({
                 }
             }
         },
-});
-
-return {
-    Playfield: function (canvasWidth, canvasHeight) {
-        return new Playfield(canvasWidth, canvasHeight);
-    },
-    Cell: function (position, color) {
-        return new Cell(position, color);
-    },
-}
 }(jQuery));
