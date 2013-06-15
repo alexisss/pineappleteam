@@ -1,6 +1,7 @@
 ﻿var gameDraw = new GameDraw();
 //var playfield = new Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
 var playfield = PlayfieldModule.Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
+
 var canvasWidth = gameDraw.canvas.width;
 var canvasHeight = gameDraw.canvas.height;
 var cellWidth = 14;
