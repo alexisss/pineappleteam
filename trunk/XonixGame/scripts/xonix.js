@@ -16,9 +16,11 @@ var enemy = EnemyModule.createEnemy(enemyPosition, "red",canvasWidth, canvasHeig
 var secondEnemyPosition = new CellTopLeft(112, 150);
 var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "purple", canvasWidth, canvasHeight);
 
+var thirdEnemyPosition = new CellTopLeft(228, 180);
+var thirdEnemy = EnemyModule.createEnemy(thirdEnemyPosition, "orange", canvasWidth, canvasHeight);
 var enemies = [];
 enemies.push(enemy);
-enemies.push(secondEnemy);
+//enemies.push(secondEnemy);
 
 gameDraw.drawField(playfield);
 
@@ -35,6 +37,9 @@ function askForName() {
 function reset() {
     player.reset(new CellTopLeft(14, 60));
     playfield.reset();
+    enemies = [];
+    enemies.push(enemy);
+    $(".difficulty")[0].checked = "checked";
     time = 0;
 }
 
