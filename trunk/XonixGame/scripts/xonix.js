@@ -10,10 +10,10 @@ var playerPosition = new CellTopLeft(0, 0);
 var player = PlayerModule.GrandPa(playerPosition);
 
 var enemyPosition = new CellTopLeft(14, 0);
-var enemy = EnemyModule.createEnemy(enemyPosition, "red");
+var enemy = EnemyModule.createEnemy(enemyPosition, "red", gameDraw.canvas.width, gameDraw.canvas.height);
 
 var secondEnemyPosition = new CellTopLeft(14, 150);
-var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "red");
+var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "red", gameDraw.canvas.width, gameDraw.canvas.height);
 
 var enemies = [];
 enemies.push(enemy);
