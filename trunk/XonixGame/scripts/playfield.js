@@ -1,11 +1,21 @@
-﻿/// <reference path="GameDraw.js" />
-/// <reference path="player.js" />
+﻿var PlayfieldModule = (function ($) {
+
+var Cell = Class.create({
+     init: function (position, color) {
+         this.position = position;
+         this.color = color;
+         this.width = 14;
+         this.height = 10;
+         this.isSown = false;
+     },
+});
+
 var Playfield = Class.create({
     init: function (canvasWidth, canvasHeight) {
-        //this.arrayOfCells = arrayOfCells;
-        this.array = new Array();// 50 elements
+
+        this.array = new Array();
         this.filledCellsCounter = 0;
-        this.canvas = document.getElementById("playfield");
+        this.canvas = $("playfield");
 
         this.cellHeight = 10;
         this.cellWidth = 14;
@@ -15,7 +25,7 @@ var Playfield = Class.create({
             for (var col = 0 ; col < parseInt(canvasWidth) / this.cellWidth; col++) {
                 var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
                 var currentCell = new Cell(currentCellTopLeft, "green");
-                //this.array[row][col] = currentCell;
+
                 this.array[row].push(currentCell);
             }
         }
@@ -30,7 +40,6 @@ var Playfield = Class.create({
             }
         }
     },
-    //Added because of the enemy, so that it knows if the cell is sown or not
 
     isSown: function (row, col) {
         if (row >= 0 && row < this.array.length) {
@@ -44,3 +53,13 @@ var Playfield = Class.create({
         return this.filledCellsCounter;
     }
 });
+
+return {
+    Playfield: function (canvasWidth, canvasHeight) {
+        return new Playfield(canvasWidth, canvasHeight);
+    },
+    Cell: function (position, color) {
+        return new Cell(position, color);
+    },
+}
+}(jQuery));

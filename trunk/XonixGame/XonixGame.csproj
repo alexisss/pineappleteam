@@ -65,7 +65,6 @@
     <Content Include="scripts\kendo.web.min.js" />
     <Content Include="scripts\enemy.js" />
     <Content Include="scripts\CellTopLeft.js" />
-    <Content Include="scripts\Cell.js" />
     <Content Include="scripts\ClassicalOOPExtensions.js" />
     <Content Include="scripts\GameDraw.js" />
     <Content Include="scripts\GameRules.js" />
