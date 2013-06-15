@@ -38,8 +38,8 @@ function reset() {
 
 var int = setInterval(function () {
     if (gameRules.hasWon()) {
-        var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
-        window.open(sharer + location.href, 'sharer', 'width=626,height=436');
+        //var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+        //window.open(sharer + location.href, 'sharer', 'width=626,height=436');
         int = window.clearInterval(int);
         var seconds = time / 1000;
         var name = askForName();
@@ -76,33 +76,3 @@ function changePlayerType(e, data) {
         player = PlayerModule.GrandPa(playerPosition, type);
     }
 }
-
-$("body").keydown(function (e) {
-
-    if (e.keyCode == 37) { // left   
-        player.moveLeft(cellWidth);
-        seedVisitedCell(player);
-        gameRules.checkForCollisions();
-    }
-    else if (e.keyCode == 38) {
-        player.moveUp(cellHeight);
-        seedVisitedCell(player);
-        gameRules.checkForCollisions();
-    }
-    else if (e.keyCode == 39) { // right
-
-        player.moveRight(cellWidth, gameDraw.canvas.width);
-        seedVisitedCell(player);
-        gameRules.checkForCollisions();
-    }
-    else if (e.keyCode == 40) { // down
-        player.moveDown(cellHeight, gameDraw.canvas.height);
-        seedVisitedCell(player);
-        gameRules.checkForCollisions();
-    }
-});
-
-
-$("body").click(function() {
-    reset();
-});
