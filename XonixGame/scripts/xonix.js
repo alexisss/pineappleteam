@@ -1,26 +1,13 @@
 ﻿var gameDraw = new GameDraw();
-var playfield = new Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
+//var playfield = new Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
+var playfield = PlayfieldModule.Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
 var canvasWidth = gameDraw.canvas.width;
 var canvasHeight = gameDraw.canvas.height;
 var cellWidth = 14;
 var cellHeight = 10;
 
-var ct1 = new CellTopLeft(0, 0);
-var ct2 = new CellTopLeft(14, 10);
-var ct3 = new CellTopLeft(28, 10);
-var ct10 = new CellTopLeft(56, 10);
-var c1 = new Cell(ct1, "red");
-var c2 = new Cell(ct2, "red");
-var c3 = new Cell(ct3, "purple");
-var c10 = new Cell(ct10, "green");
-var arr = new Array(c1, c2, c3, c10);
-//playfield.seedArrayOfCells(arr);
-
-var ct4 = new CellTopLeft(28, 10);
-var playerCell = new Cell(ct4, "red");
-
 var playerPosition = new CellTopLeft(0, 0);
-var player = PlayerModule.GrandMa(playerPosition);
+var player = PlayerModule.GrandPa(playerPosition);
 
 var enemyPosition = new CellTopLeft(14, 0);
 var enemy = EnemyModule.createEnemy(enemyPosition, "red");

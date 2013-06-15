@@ -14,8 +14,8 @@
         moveTop: function (playfield) {
             var newLeft = this.position.leftPosition;
             var newTop = this.position.topPosition - this.y;
-            var colIndex = parseInt((newLeft) / 14);
-            var rowIndex = parseInt((newTop) / 10);
+            var colIndex = parseInt((newLeft) / this.x);
+            var rowIndex = parseInt((newTop) / this.y);
             if (!playfield.isSown(rowIndex, colIndex) &&
                 this.position.topPosition > 0)
             {
@@ -29,10 +29,10 @@
         moveBottom: function (playfield) {
             var newLeft = this.position.leftPosition;
             var newTop = this.position.topPosition + this.y;
-            var colIndex = parseInt((newLeft) / 14);
-            var rowIndex = parseInt((newTop) / 10);
+            var colIndex = parseInt((newLeft) / this.x);
+            var rowIndex = parseInt((newTop) / this.y);
             if (!playfield.isSown(rowIndex, colIndex) &&            
-                this.position.topPosition < parseInt(playfield.canvas.height) - 10) {
+                this.position.topPosition < parseInt(playfield.canvas.height) - this.y) {
 
                 this.position.topPosition += this.y;
             
@@ -45,8 +45,8 @@
         moveLeft: function (playfield) {
             var newLeft = this.position.leftPosition - this.x;
             var newTop = this.position.topPosition;
-            var colIndex = parseInt((newLeft) / 14);
-            var rowIndex = parseInt((newTop) / 10);
+            var colIndex = parseInt((newLeft) / this.x);
+            var rowIndex = parseInt((newTop) / this.y);
             if (this.position.leftPosition > 0 &&
                 !playfield.isSown(rowIndex, colIndex)) {
 
@@ -60,9 +60,9 @@
         moveRight: function (playfield) {
             var newLeft = this.position.leftPosition + this.x;
             var newTop = this.position.topPosition;
-            var colIndex = parseInt((newLeft) / 14);
-            var rowIndex = parseInt((newTop) / 10);
-            if (this.position.leftPosition < (parseInt(playfield.canvas.width)-14) &&
+            var colIndex = parseInt((newLeft) / this.x);
+            var rowIndex = parseInt((newTop) / this.y);
+            if (this.position.leftPosition < (parseInt(playfield.canvas.width)- this.x) &&
                 !playfield.isSown(rowIndex, colIndex)) {
 
                 this.position.leftPosition += this.x;
