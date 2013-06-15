@@ -13,7 +13,7 @@ var Player = Class.create({
     },
 
     moveDown: function (distance, maxHeight) {
-        if (this.position.topPosition < maxHeight - 10) { //this must be constant and not 100 but canvas height
+        if (this.position.topPosition < maxHeight - 10) {
             this.position.topPosition += distance;
         }
     },
@@ -25,7 +25,7 @@ var Player = Class.create({
     },
 
     moveRight: function (distance, maxWidth) {
-        if (this.position.leftPosition < maxWidth - 42) { //must be something like canvas width
+        if (this.position.leftPosition < maxWidth - 42) {
             this.position.leftPosition += distance;
         }
     },

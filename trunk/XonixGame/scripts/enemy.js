@@ -1,4 +1,4 @@
-﻿var EnemyModule = function(){
+﻿var EnemyModule = function () {
     var Enemy = Class.create({
         init: function (position, color, canvasWidth, canvasHeight) {
             this.position = position;
@@ -11,65 +11,50 @@
             this.count = 0;
             this.canvasWidth = canvasWidth;
             this.canvasHeight = canvasHeight;
+
+            this.maxTop = 6 * this.y;
+            this.maxBottom = canvasHeight - 60;
+            this.maxLeft = 2 * this.x;
+            this.maxRight = canvasWidth - 42;
         },
 
         moveTop: function (playfield) {
-            var newLeft = this.position.leftPosition;
             var newTop = this.position.topPosition - this.y;
-            var colIndex = parseInt((newLeft) / this.x);
-            var rowIndex = parseInt((newTop) / this.y);
-            if (!playfield.isSown(rowIndex, colIndex) &&
-                this.position.topPosition > 0)
-            {
-                this.position.topPosition -= this.y;
-            }
-            else {
-                this.countMove = 0;
+            if (newTop > this.maxTop + 1) {
+                var colIndex = parseInt((this.position.leftPosition) / this.x);
+                var rowIndex = parseInt((newTop) / this.y);
+                playfield.array[rowIndex][colIndex].isSown = false;
+                this.position.topPosition = newTop;
             }
         },
 
         moveBottom: function (playfield) {
-            var newLeft = this.position.leftPosition;
             var newTop = this.position.topPosition + this.y;
-            var colIndex = parseInt((newLeft) / this.x);
-            var rowIndex = parseInt((newTop) / this.y);
-            if (!playfield.isSown(rowIndex, colIndex) &&            
-                this.position.topPosition < parseInt(canvasHeight) - this.y) {
-
-                this.position.topPosition += this.y;
-            
-            }
-            else {
-                this.countMove = 0;
+            if (newTop < this.maxBottom) {
+                var colIndex = parseInt((this.position.leftPosition) / this.x);
+                var rowIndex = parseInt((newTop) / this.y);
+                playfield.array[rowIndex][colIndex].isSown = false;
+                this.position.topPosition = newTop;
             }
         },
 
         moveLeft: function (playfield) {
             var newLeft = this.position.leftPosition - this.x;
-            var newTop = this.position.topPosition;
-            var colIndex = parseInt((newLeft) / this.x);
-            var rowIndex = parseInt((newTop) / this.y);
-            if (this.position.leftPosition > 0 &&
-                !playfield.isSown(rowIndex, colIndex)) {
-
-                this.position.leftPosition -= this.x;
-            }
-            else {
-                this.countMove = 0;
+            if (newLeft > this.maxLeft) {
+                var rowIndex = parseInt((this.position.topPosition) / this.y);
+                var colIndex = parseInt((newLeft) / this.x);
+                playfield.array[rowIndex][colIndex].isSown = false;
+                this.position.leftPosition = newLeft;
             }
         },
 
         moveRight: function (playfield) {
             var newLeft = this.position.leftPosition + this.x;
-            var newTop = this.position.topPosition;
-            var colIndex = parseInt((newLeft) / this.x);
-            var rowIndex = parseInt((newTop) / this.y);
-            if (this.position.leftPosition < (parseInt(canvasWidth) - this.x) &&
-                !playfield.isSown(rowIndex, colIndex)) {
-
-                this.position.leftPosition += this.x;
-            } else {
-                this.countMove = 0;
+            if (newLeft < this.maxRight) {
+                var rowIndex = parseInt((this.position.topPosition) / this.y);
+                var colIndex = parseInt((newLeft) / this.x);
+                playfield.array[rowIndex][colIndex].isSown = false;
+                this.position.leftPosition = newLeft;
             }
         },
 
@@ -83,7 +68,6 @@
                 this.countMove = getRandomInt() * 5;
             }
             this.countMove--;
-        
             switch (this.direction) {
                 case 0:
                     this.moveTop(playfield);
@@ -101,16 +85,16 @@
                     break;
             }
         }
-        
+
     });
 
     function getRandomInt() {
         return Math.floor(Math.random() * 4);
     }
 
-    return {        
+    return {
         createEnemy: function (position, color, canvasWidth, canvasHeight) {
-            return new Enemy(position, color)
+            return new Enemy(position, color, canvasWidth, canvasHeight)
         }
     }
 }();
