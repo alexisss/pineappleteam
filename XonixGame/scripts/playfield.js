@@ -42,6 +42,7 @@
                 }
             }
             this.array[0][0].isSown = true;
+            this.seedBorder();
         },
 
         seedCell: function myfunction(row, col) {
