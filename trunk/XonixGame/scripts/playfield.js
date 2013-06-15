@@ -16,28 +16,26 @@
             this.array = new Array();
             this.filledCellsCounter = 0;
             this.canvas = $("playfield");
-        this.canvasWidth = canvasWidth;
-        this.canvasHeight = canvasHeight;
+            this.canvasWidth = canvasWidth;
+            this.canvasHeight = canvasHeight;
 
             this.cellHeight = 10;
             this.cellWidth = 14;
 
-        for (var row = 0; row < parseInt(this.canvasHeight) / this.cellHeight ; row++) {
-            this.array.push(new Array());
-            for (var col = 0 ; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
-                var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
-                var currentCell = new Cell(currentCellTopLeft, "green");
+            for (var row = 0; row < parseInt(this.canvasHeight) / this.cellHeight ; row++) {
+                this.array.push(new Array());
+                for (var col = 0 ; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
+                    var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
+                    var currentCell = new Cell(currentCellTopLeft, "green");
 
                     this.array[row].push(currentCell);
                 }
             }
-        }
+            this.array[0][0].isSown = true;
+            this.seedBorder();
+        },
 
-        this.array[0][0].isSown = true;
-        this.seedBorder();
-    },
-
-        reset: function (c) {
+        reset: function () {
             for (var row = 0; row < this.array.length; row++) {
                 for (var col = 0 ; col <this.array[0].length; col++) {
                     this.array[row][col].isSown = false;
@@ -77,7 +75,7 @@
         },
     },
 
-    seedBorder : function () {
+        seedBorder : function () {
             var top = 6;// player height 6
             var bottom = (this.canvasHeight - 60)/10; // from 34 rows to 40
             var left = 2;//2 colls
@@ -111,4 +109,4 @@
                 }
             }
         },
-}(jQuery));
+        }(jQuery));
