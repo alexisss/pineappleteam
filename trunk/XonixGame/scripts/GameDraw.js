@@ -33,23 +33,6 @@ var GameDraw = Class.create({
         }
     },
 
-    drawBorder: function (arrayOgCells) {
-        for (var row = 0; row < (parseInt(this.canvas.height) / 10) ; row++) {
-            for (var col = 0 ; col < parseInt(this.canvas.width) / 14; col++) {
-                if (playfield.array[row][col].isSown) {
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(playfield.array[row][col].position.leftPosition,
-                        playfield.array[row][col].position.topPosition);
-                    this.ctx.fillStyle = playfield.array[row][col].color;
-                    this.ctx.fillRect(playfield.array[row][col].position.leftPosition,
-                        playfield.array[row][col].position.topPosition,
-                        playfield.array[row][col].width, playfield.array[row][col].height);
-                    this.ctx.closePath();
-                    this.ctx.stroke();
-                }
-            }
-        }
-    },
     drawPlayer: function (player) {
         var playerTypeImg = document.getElementById(player.playerType);
         this.ctx.drawImage(playerTypeImg, player.position.leftPosition - 10, player.position.topPosition - 70 + 5);
