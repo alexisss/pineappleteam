@@ -6,7 +6,7 @@ var canvasHeight = gameDraw.canvas.height;
 var cellWidth = 14;
 var cellHeight = 10;
 
-var playerPosition = new CellTopLeft(0, 60);
+var playerPosition = new CellTopLeft(14, 60);
 var player = PlayerModule.GrandPa(playerPosition);
 
 var enemyPosition = new CellTopLeft(210, 120);
