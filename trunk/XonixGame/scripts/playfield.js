@@ -16,20 +16,24 @@ var Playfield = Class.create({
         this.array = new Array();
         this.filledCellsCounter = 0;
         this.canvas = $("playfield");
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
 
         this.cellHeight = 10;
         this.cellWidth = 14;
 
-        for (var row = 0; row < parseInt(canvasHeight) / this.cellHeight ; row++) {
+        for (var row = 0; row < parseInt(this.canvasHeight) / this.cellHeight ; row++) {
             this.array.push(new Array());
-            for (var col = 0 ; col < parseInt(canvasWidth) / this.cellWidth; col++) {
+            for (var col = 0 ; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
                 var currentCellTopLeft = new CellTopLeft(col * this.cellWidth, row * this.cellHeight);
                 var currentCell = new Cell(currentCellTopLeft, "green");
 
                 this.array[row].push(currentCell);
             }
         }
+
         this.array[0][0].isSown = true;
+        this.seedBorder();
     },
 
     seedCell: function myfunction(row, col) {
@@ -51,7 +55,42 @@ var Playfield = Class.create({
 
     calculatePoints: function () {
         return this.filledCellsCounter;
-    }
+    },
+
+    seedBorder : function () {
+            var top = 6;// player height 6
+            var bottom = (this.canvasHeight - 60)/10; // from 34 rows to 40
+            var left = 2;//2 colls
+            var right = (this.canvasWidth - 42)/14;//from 47 to 50
+
+            // seed top border
+            for (var row = 0; row < top; row++) {
+                for (var col = 0; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
+                    this.seedCell(row, col);
+                }
+            }
+
+            // seed bottom border
+            for (var row = bottom; row < parseInt(this.canvasHeight) / this.cellHeight  ; row++) {
+                for (var col = 0; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
+                    this.seedCell(row, col);
+                }
+            }
+
+            // seed left border
+            for (var row = 0; row < parseInt(this.canvasHeight) / this.cellHeight  ; row++) {
+                for (var col = 0; col < left; col++) {
+                    this.seedCell(row, col);
+                }
+            }
+
+            // seed left border
+            for (var row = 0; row < parseInt(this.canvasHeight) / this.cellHeight  ; row++) {
+                for (var col = right; col < parseInt(this.canvasWidth) / this.cellWidth; col++) {
+                    this.seedCell(row, col);
+                }
+            }
+        },
 });
 
 return {

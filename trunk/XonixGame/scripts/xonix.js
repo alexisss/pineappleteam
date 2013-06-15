@@ -6,13 +6,13 @@ var canvasHeight = gameDraw.canvas.height;
 var cellWidth = 14;
 var cellHeight = 10;
 
-var playerPosition = new CellTopLeft(0, 0);
+var playerPosition = new CellTopLeft(0, 60);
 var player = PlayerModule.GrandPa(playerPosition);
 
-var enemyPosition = new CellTopLeft(14, 0);
+var enemyPosition = new CellTopLeft(210, 120);
 var enemy = EnemyModule.createEnemy(enemyPosition, "red", gameDraw.canvas.width, gameDraw.canvas.height);
 
-var secondEnemyPosition = new CellTopLeft(14, 150);
+var secondEnemyPosition = new CellTopLeft(112, 150);
 var secondEnemy = EnemyModule.createEnemy(secondEnemyPosition, "red", gameDraw.canvas.width, gameDraw.canvas.height);
 
 var enemies = [];
