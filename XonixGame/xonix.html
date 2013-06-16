@@ -6,9 +6,16 @@
     <link href="styles/style.css" rel="stylesheet" />
     <link href="styles/kendo.common.min.css" rel="stylesheet" />
     <link href="styles/kendo.default.min.css" rel="stylesheet" />
+     <link href="styles/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
 
     <script src="scripts/jquery-1.10.1.js"></script>
     <script src="scripts/kendo.web.min.js"></script>
+    <script src="scripts/jquery-ui-1.10.3.custom.js"></script>
+  <script>
+      $(function () {
+          $("#radio").buttonset();
+      });
+  </script>
 </head>
 <body>
     <header>
@@ -39,15 +46,18 @@
 
         <div id="levels-section" class="demo-section">
             <h2>Pick a level difficulty</h2>
-            <form>
-                <label for="easy-level">Easy</label>
-                <input type="radio" name="levels" value="Easy" id="easy-level" checked="checked" class="difficulty" />
-                <label for="medium-level">Medium</label>
-                <input type="radio" name="levels" value="Medium" id="medium-level" class="difficulty"/>
-                <label for="hard-level">Hard</label>
-                <input name="levels" type="radio" value="Hard" id="hard-level" class="difficulty"/>
-            </form>
+             <form>
+                 <div id="radio">
+                    <label for="radio1">Easy</label>
+                    <input type="radio" name="levels" value="Easy" id="radio1" checked="checked" class="difficulty" />
+                    <label for="radio2">Medium</label>
+                    <input type="radio" name="levels" value="Medium" id="radio2" class="difficulty"/>
+                    <label for="radio3">Hard</label>
+                    <input name="levels" type="radio" value="Hard" id="radio3" class="difficulty"/>
+                </div>
+         </form>
         </div>
+
     </div>
     <div id="facebook-buttons">
         <div id="fb-root"></div>
