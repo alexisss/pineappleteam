@@ -64,8 +64,13 @@ var int = setInterval(function () {
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemies);
         gameDraw.drawLives(player.lives);
+
         if (gameRules.hasWon()) {
             gameDraw.drawWin();
+            reset();
+        }
+
+        if (gameRules.hasLost()) {
             reset();
         }
     //}
