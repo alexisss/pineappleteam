@@ -62,6 +62,9 @@
     <Content Include="scripts\facebook.js" />
     <Content Include="scripts\jquery-ui-1.10.3.custom.js" />
     <Content Include="scripts\kendo.js" />
+    <Content Include="scripts\testCellTopLeft.js" />
+    <Content Include="scripts\testEnemy.js" />
+    <Content Include="scripts\testGameRules.js" />
     <Content Include="scripts\testPlayer.js" />
     <Content Include="styles\examples-offline.css" />
     <Content Include="scripts\jquery.min.js" />
