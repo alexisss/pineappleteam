@@ -8,7 +8,7 @@
     checkForCollisions: function () {
         var collision = false;
         var playerHeight = 6;
-        for (var i = 0; i < enemies.length; i++) {
+        for (var i = 0; i < this.enemies.length; i++) {
             for (var j = 0; j < playerHeight; j++) {
                 if (this.player.position.leftPosition === this.enemies[i].position.leftPosition &&
                this.player.position.topPosition - 10*j == this.enemies[i].position.topPosition) {
