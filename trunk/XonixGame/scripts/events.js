@@ -1,4 +1,4 @@
-﻿$("body").keydown(function (e) {
+﻿var userControl = function (e) {
 
     if (e.keyCode == 37) { // left   
         player.moveLeft(cellWidth);
@@ -21,14 +21,13 @@
         seedVisitedCell(player);
         gameRules.checkForCollisions();
     }
-});
+};
 
-
-$("#reset-button").click(function () {
+var onReset =function () {
     reset();
-});
+};
 
-$(".difficulty").click(function (e) {
+var onLevel = function (e) {
     if (e.currentTarget.defaultValue == "Easy") {
         enemies = [];
         enemies.push(enemy);
@@ -44,5 +43,8 @@ $(".difficulty").click(function (e) {
         enemies.push(secondEnemy);
         enemies.push(thirdEnemy);
     }
-});
+};
 
+$("body").on("keydown", userControl);
+$("#reset-button").on("click", onReset);
+$(".difficulty").on("click", onLevel);
