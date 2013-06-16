@@ -42,6 +42,7 @@
                 }
             }
             this.array[0][0].isSown = true;
+            this.filledCellsCounter = 0;
             this.seedBorder();
         },
 

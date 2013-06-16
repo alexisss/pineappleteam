@@ -3,39 +3,35 @@
         this.player = player;
         this.enemies = enemies;
         this.playfield = playfield;
-        this.lives = 5;
     },
 
-    checkForCollisions: function()
-    {
-        if (this.hasCollisions()) {
-            this.decreaseLives();
-        }
-    },
-
-    hasCollisions: function () {
+    checkForCollisions: function () {
         var collision = false;
-       
+        var playerHeight = 6;
         for (var i = 0; i < enemies.length; i++) {
-            if (this.player.position.leftPosition == this.enemies[i].position.leftPosition &&
-                this.player.position.rightPosition == this.enemies[i].position.rightPosition) {
-                collision = true;
+            for (var j = 0; j < playerHeight; j++) {
+                if (this.player.position.leftPosition === this.enemies[i].position.leftPosition &&
+               this.player.position.topPosition - 10*j == this.enemies[i].position.topPosition) {
+                    collision = true;
+                    this.decreaseLives();
+                }
             }
         }
+
         return collision;
     },
 
     hasLost: function () {
-        return this.lives == 0;
+        return this.palyer.lives <= 0;
     },
 
     decreaseLives: function()
     {
-        this.lives--;
+        this.player.lives--;
     },
 
     hasWon: function () {
-        if (this.playfield.calculatePoints() > 1700) {
+        if (this.playfield.calculatePoints() > 900) {
             return true;
         }
         return false;
