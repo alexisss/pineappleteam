@@ -22,7 +22,11 @@
     },
 
     hasLost: function () {
-        return this.palyer.lives <= 0;
+        if (this.player.lives <= 0) {
+            return true;
+        }
+        
+        return false;
     },
 
     decreaseLives: function()
