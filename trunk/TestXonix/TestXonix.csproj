@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\qunit.css" />
+    <Content Include="Scripts\CellTopLeft.js" />
     <Content Include="Scripts\ClassicalOOPExtensions.js" />
     <Content Include="Scripts\player.js" />
     <Content Include="Scripts\qunit.js" />
