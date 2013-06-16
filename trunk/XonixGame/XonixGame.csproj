@@ -60,9 +60,11 @@
     <Content Include="scripts\console.js" />
     <Content Include="scripts\events.js" />
     <Content Include="scripts\facebook.js" />
+    <Content Include="scripts\jquery-ui-1.10.3.custom.js" />
     <Content Include="scripts\kendo.js" />
     <Content Include="styles\examples-offline.css" />
     <Content Include="scripts\jquery.min.js" />
+    <Content Include="styles\jquery-ui-1.10.3.custom.css" />
     <Content Include="styles\kendo.common.min.css" />
     <Content Include="styles\kendo.default.min.css" />
     <Content Include="scripts\kendo.web.min.js" />
