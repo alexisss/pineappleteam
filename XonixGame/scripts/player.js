@@ -2,8 +2,9 @@
 var Player = Class.create({
     init: function (position, type) {
         this.position = position;
-        this.radius = 10;
+        //this.radius = 10;
         this.playerType = type;
+        this.lives = 5;
     },
 
     moveUp: function (distance) {
@@ -32,6 +33,7 @@ var Player = Class.create({
 
     reset: function (position) {
         this.position = position;
+        this.lives = 5;
     }
 });
 

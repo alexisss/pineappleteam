@@ -58,6 +58,21 @@ var GameDraw = Class.create({
         this.drawPlayer(player);
     },
 
+    drawLives: function (lives) {
+        this.ctx.fillStyle = "rgb(0,0,0)";
+        this.ctx.font = "25px Arial";
+        var text = "Lives " + lives;
+        this.ctx.fillText(text, 590, 30);
+       
+    },
+
+    drawWin : function(){
+        this.ctx.fillStyle = "rgb(150,140,130)";
+        this.ctx.font = "40px Arial";
+        var text = "You win";
+        this.ctx.fillText(text, 200, 200);
+    },
+
     clearAll: function () {
         this.ctx.clearRect(0, 0, parseInt(this.canvas.width), parseInt(this.canvas.height));
         //this.ctx.stroke();

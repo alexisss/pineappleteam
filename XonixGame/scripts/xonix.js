@@ -1,5 +1,4 @@
 ﻿var gameDraw = new GameDraw();
-//var playfield = new Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
 var playfield = PlayfieldModule.Playfield(gameDraw.canvas.width, gameDraw.canvas.height);
 
 var canvasWidth = gameDraw.canvas.width;
@@ -64,6 +63,11 @@ var int = setInterval(function () {
 
         gameDraw.clearAll();
         gameDraw.draw(player, playfield, enemies);
+        gameDraw.drawLives(player.lives);
+        if (gameRules.hasWon()) {
+            gameDraw.drawWin();
+            reset();
+        }
     //}
     time += 50;
 }, 50);
