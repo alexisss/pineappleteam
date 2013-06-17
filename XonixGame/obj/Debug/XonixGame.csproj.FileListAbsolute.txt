@@ -33,3 +33,8 @@ C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folde
 C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\Xonix_NAI-new\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
 C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\Xonix_NAI-new\XonixGame\obj\Debug\XonixGame.dll
 C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\Xonix_NAI-new\XonixGame\obj\Debug\XonixGame.pdb
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XONIX-nai-new\o6te po-new\XonixGame\bin\XonixGame.dll
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XONIX-nai-new\o6te po-new\XonixGame\bin\XonixGame.pdb
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XONIX-nai-new\o6te po-new\XonixGame\obj\Debug\XonixGame.csprojResolveAssemblyReference.cache
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XONIX-nai-new\o6te po-new\XonixGame\obj\Debug\XonixGame.dll
+C:\Users\rumy\Desktop\Telerik academy\JavaScriptPrilojeniq\OtbornaIgra\New folder\XONIX-nai-new\o6te po-new\XonixGame\obj\Debug\XonixGame.pdb

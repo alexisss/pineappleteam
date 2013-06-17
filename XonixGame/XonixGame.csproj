@@ -66,6 +66,7 @@
     <Content Include="scripts\testEnemy.js" />
     <Content Include="scripts\testGameRules.js" />
     <Content Include="scripts\testPlayer.js" />
+    <Content Include="scripts\testPlayfield.js" />
     <Content Include="styles\examples-offline.css" />
     <Content Include="scripts\jquery.min.js" />
     <Content Include="styles\jquery-ui-1.10.3.custom.css" />
