@@ -26,13 +26,7 @@ gameDraw.drawField(playfield);
 var time = 0;
 var gameRules = new GameRules(player, enemies, playfield);
 
-function askForName() {
-    //var name = $("user-name").first().html(); - something like that 
-    var name = "me";
-    return name;
-}
-
-localStorage.setItem("hightScore", 0);
+localStorage.setItem("highScore", 0);
 
 function reset() {
     player.reset(new CellTopLeft(14, 60));
@@ -54,18 +48,20 @@ var int = setInterval(function () {
 
     if (gameRules.hasWon()) {
         gameDraw.drawWin();
-        var currentHightScore = localStorage["highScore"];
-        if (currentHightScore < time) {
-            localStorage["highScore"] = time;
+        var highScore = localStorage["highScore"];
+        var currentHighScore = playfield.calculatePoints();
+        if (highScore < currentHighScore || highScore == null) {
+            localStorage["highScore"] = currentHighScore;
         }
         console.log(localStorage);
         reset();
     }
 
     if (gameRules.hasLost()) {
-        var currentHightScore = localStorage["highScore"];
-        if (currentHightScore < time) {
-            localStorage["highScore"] = time;
+        var highScore = localStorage["highScore"];
+        var currentHighScore = playfield.calculatePoints();
+        if (highScore < currentHighScore || highScore == null) {
+            localStorage["highScore"] = currentHighScore;
         }
         console.log(localStorage);
         reset();
