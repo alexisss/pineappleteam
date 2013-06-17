@@ -50,20 +50,22 @@ var int = setInterval(function () {
         gameDraw.drawWin();
         var highScore = localStorage["highScore"];
         var currentHighScore = playfield.calculatePoints();
+        var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+        window.open(sharer + location.href, 'sharer', 'width=626,height=436');
         if (highScore < currentHighScore || highScore == null) {
             localStorage["highScore"] = currentHighScore;
         }
-        console.log(localStorage);
         reset();
     }
 
     if (gameRules.hasLost()) {
         var highScore = localStorage["highScore"];
         var currentHighScore = playfield.calculatePoints();
+        var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+        window.open(sharer + location.href, 'sharer', 'width=626,height=436');
         if (highScore < currentHighScore || highScore == null) {
             localStorage["highScore"] = currentHighScore;
         }
-        console.log(localStorage);
         reset();
     }
     time += 50;
