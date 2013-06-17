@@ -9,7 +9,7 @@ test("Test if the cell is positioned correctly", function () {
     equal(cell.position, position, "Cell positioning is correct");
 });
 
-test("Test if the playfiel is create with the correct dimentions", function () {
+test("Test if the playfield is created with the correct dimensions", function () {
     var playfield = new PlayfieldModule.Playfield(700, 400);
 
     ok(playfield.canvasWidth == 700 && playfield.canvasHeight == 400, "Canvas dimentions are correct");
